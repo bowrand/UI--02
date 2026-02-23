@@ -1,5 +1,8 @@
 import Script from "next/script";
 import BrandsMarquee from "./components/BrandsMarquee";
+import ComparisonTable from "./components/ComparisonTable";
+import FAQAccordion from "./components/FAQAccordion";
+import FounderSection from "./components/FounderSection";
 
 export default function Home() {
   const jsonLd = {
@@ -104,6 +107,15 @@ export default function Home() {
               </div>
             </div>
             
+            {/* Live Availability Indicator */}
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#34C759]/10 border border-[#34C759]/20 animate-[fadeInUp_0.8s_ease-out_0.15s_both]">
+              <span className="relative flex h-2.5 w-2.5">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#34C759] opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-[#34C759]"></span>
+              </span>
+              <span className="text-sm font-semibold text-[#248A3D]">Available Today in Calgary</span>
+            </div>
+
             <h1 className="text-[2.75rem] sm:text-5xl lg:text-7xl font-extrabold tracking-tighter text-[#1D1D1F] leading-[1.05] sm:leading-[1.05] text-center sm:text-left animate-[fadeInUp_0.8s_ease-out_0.2s_both]">
               Calgary's Trusted <br className="hidden sm:block" />
               <span className="bg-gradient-to-r from-[#FF9500] via-[#FF5E3A] to-[#FF9500] bg-[length:200%_auto] animate-gradient-x bg-clip-text text-transparent drop-shadow-sm">Mobile Mechanic.</span>
@@ -644,10 +656,14 @@ export default function Home() {
             </div>
           </div>
         </section>
+
+        <FounderSection />
+        <ComparisonTable />
+        <FAQAccordion />
       </main>
 
       {/* Footer */}
-      <footer className="w-full bg-[#1D1D1F] text-white py-12 pb-28 sm:pb-12">
+      <footer className="w-full bg-[#1D1D1F] text-white py-12 pb-32 sm:pb-12">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-6">
           <div className="text-center md:text-left">
             <span className="text-2xl font-bold tracking-tight">MR.Mech</span>
@@ -662,14 +678,30 @@ export default function Home() {
         </div>
       </footer>
 
-      {/* Mobile Sticky CTA */}
-      <div className="fixed bottom-0 left-0 right-0 p-4 sm:p-6 bg-white/90 backdrop-blur-2xl border-t border-gray-200/50 sm:hidden z-50 shadow-[0_-8px_30px_rgba(0,0,0,0.08)] pb-safe">
-        <a
-          href="tel:+14035550199"
-          className="flex items-center justify-center w-full py-4 text-lg font-semibold text-white bg-[#FF9500] rounded-full shadow-lg active:scale-95 transition-transform min-h-[56px]"
-        >
-          Call David Now
-        </a>
+      {/* Uber-Style Mobile Sticky Action Bar */}
+      <div className="fixed bottom-0 left-0 right-0 bg-white/90 backdrop-blur-2xl border-t border-gray-200/50 sm:hidden z-50 shadow-[0_-20px_40px_rgba(0,0,0,0.08)] pb-safe">
+        <div className="px-4 py-3 flex items-center justify-between gap-3">
+          <div className="flex flex-col">
+            <span className="text-xs font-medium text-gray-500 uppercase tracking-wider">Status</span>
+            <div className="flex items-center gap-1.5">
+              <span className="relative flex h-2 w-2">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#34C759] opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-[#34C759]"></span>
+              </span>
+              <span className="text-sm font-bold text-[#1D1D1F]">Available Today</span>
+            </div>
+          </div>
+          
+          <a
+            href="tel:+14035550199"
+            className="flex-1 flex items-center justify-center gap-2 py-3.5 px-4 text-base font-semibold text-white bg-[#1D1D1F] rounded-2xl shadow-md active:scale-95 transition-transform"
+          >
+            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+            </svg>
+            Call David
+          </a>
+        </div>
       </div>
     </>
   );

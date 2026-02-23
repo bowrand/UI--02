@@ -283,32 +283,38 @@ export default function Home() {
               
               {/* Content */}
               <div className="w-full lg:w-1/2 space-y-10 sm:space-y-12 mt-12 lg:mt-0">
-                <div className="space-y-5">
+                <div className="space-y-6">
+                  <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-orange-50 border border-orange-100 text-[#FF9500] text-sm font-bold tracking-wide uppercase">
+                    <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clipRule="evenodd" /></svg>
+                    About Your Mechanic
+                  </div>
                   <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-[#1D1D1F]">Meet David, Your Local Expert</h2>
                   <p className="text-lg sm:text-xl text-gray-600 leading-relaxed">
                     Skip the waiting room and the towing fees. As a fully certified mobile mechanic based right here in Calgary, I bring the repair shop directly to your driveway or office parking lot.
                   </p>
-                  <p className="text-lg sm:text-xl text-gray-600 leading-relaxed">
-                    My goal is simple: provide honest, transparent, and high-quality automotive repair without the traditional dealership hassle. You deal directly with the mechanic working on your car.
-                  </p>
+                  <div className="pl-5 border-l-4 border-[#FF9500] bg-gradient-to-r from-orange-50/50 to-transparent py-2">
+                    <p className="text-lg sm:text-xl text-gray-800 font-medium leading-relaxed italic">
+                      "My goal is simple: provide honest, transparent, and high-quality automotive repair without the traditional dealership hassle. You deal directly with the mechanic working on your car."
+                    </p>
+                  </div>
                 </div>
                 
-                <div className="grid sm:grid-cols-2 gap-6 sm:gap-8">
+                <div className="grid sm:grid-cols-2 gap-4 sm:gap-6">
                   {[
                     { title: "Fully Certified", desc: "Licensed and insured.", icon: "M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" },
                     { title: "Transparent Pricing", desc: "No hidden fees ever.", icon: "M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" },
                     { title: "Ultimate Convenience", desc: "I come to you.", icon: "M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" },
                     { title: "All Makes & Models", desc: "Domestic & Import.", icon: "M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" }
                   ].map((feature, i) => (
-                    <div key={i} className="flex items-start gap-4 sm:gap-5">
-                      <div className="w-12 h-12 sm:w-14 sm:h-14 shrink-0 rounded-2xl bg-[#F5F5F7] flex items-center justify-center text-[#FF9500]">
-                        <svg className="w-6 h-6 sm:w-7 sm:h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <div key={i} className="group flex items-start gap-4 sm:gap-5 bg-white p-5 rounded-2xl border border-gray-100 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-300 cursor-default">
+                      <div className="w-12 h-12 sm:w-14 sm:h-14 shrink-0 rounded-xl bg-orange-50 group-hover:bg-[#FF9500] flex items-center justify-center text-[#FF9500] group-hover:text-white transition-colors duration-300">
+                        <svg className="w-6 h-6 sm:w-7 sm:h-7 group-hover:scale-110 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={feature.icon} />
                         </svg>
                       </div>
                       <div>
-                        <h3 className="font-semibold text-lg tracking-tight text-[#1D1D1F]">{feature.title}</h3>
-                        <p className="text-sm sm:text-base text-gray-600 mt-1">{feature.desc}</p>
+                        <h3 className="font-semibold text-lg tracking-tight text-[#1D1D1F] group-hover:text-[#FF9500] transition-colors duration-300">{feature.title}</h3>
+                        <p className="text-sm sm:text-base text-gray-500 mt-1">{feature.desc}</p>
                       </div>
                     </div>
                   ))}

@@ -1,4 +1,5 @@
 import Script from "next/script";
+import BrandsMarquee from "./components/BrandsMarquee";
 
 export default function Home() {
   const jsonLd = {
@@ -366,18 +367,7 @@ export default function Home() {
             </div>
             
             {/* Trust Logos (Bandwagon/Authority) */}
-            <div className="mt-16 sm:mt-24 pt-12 border-t border-gray-200/60 relative z-10 animate-[fadeInUp_0.8s_ease-out_0.6s_both]">
-              <p className="text-center text-sm font-bold text-gray-400 uppercase tracking-widest mb-8">Proudly Servicing All Major Brands</p>
-              <div className="flex flex-wrap justify-center items-center gap-8 sm:gap-16 opacity-50 grayscale hover:grayscale-0 hover:opacity-100 transition-all duration-700">
-                {/* Placeholder SVGs for Car Brands (Toyota, Honda, Ford, etc.) */}
-                <div className="text-xl sm:text-2xl font-extrabold tracking-tighter text-gray-800 hover:text-[#34C759] transition-colors duration-300 cursor-default">TOYOTA</div>
-                <div className="text-xl sm:text-2xl font-extrabold tracking-tighter text-gray-800 hover:text-[#34C759] transition-colors duration-300 cursor-default">HONDA</div>
-                <div className="text-xl sm:text-2xl font-extrabold tracking-tighter text-gray-800 hover:text-[#34C759] transition-colors duration-300 cursor-default">FORD</div>
-                <div className="text-xl sm:text-2xl font-extrabold tracking-tighter text-gray-800 hover:text-[#34C759] transition-colors duration-300 cursor-default">CHEVROLET</div>
-                <div className="text-xl sm:text-2xl font-extrabold tracking-tighter text-gray-800 hover:text-[#34C759] transition-colors duration-300 cursor-default">BMW</div>
-                <div className="text-xl sm:text-2xl font-extrabold tracking-tighter text-gray-800 hover:text-[#34C759] transition-colors duration-300 cursor-default">AUDI</div>
-              </div>
-            </div>
+            <BrandsMarquee />
           </div>
         </section>
 

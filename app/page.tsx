@@ -283,38 +283,32 @@ export default function Home() {
               
               {/* Content */}
               <div className="w-full lg:w-1/2 space-y-10 sm:space-y-12 mt-12 lg:mt-0">
-                <div className="space-y-6">
-                  <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-orange-50 border border-orange-100 text-[#FF9500] text-sm font-bold tracking-wide uppercase">
-                    <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clipRule="evenodd" /></svg>
-                    About Your Mechanic
-                  </div>
+                <div className="space-y-5">
                   <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-[#1D1D1F]">Meet David, Your Local Expert</h2>
                   <p className="text-lg sm:text-xl text-gray-600 leading-relaxed">
                     Skip the waiting room and the towing fees. As a fully certified mobile mechanic based right here in Calgary, I bring the repair shop directly to your driveway or office parking lot.
                   </p>
-                  <div className="pl-5 border-l-4 border-[#FF9500] bg-gradient-to-r from-orange-50/50 to-transparent py-2">
-                    <p className="text-lg sm:text-xl text-gray-800 font-medium leading-relaxed italic">
-                      "My goal is simple: provide honest, transparent, and high-quality automotive repair without the traditional dealership hassle. You deal directly with the mechanic working on your car."
-                    </p>
-                  </div>
+                  <p className="text-lg sm:text-xl text-gray-600 leading-relaxed">
+                    My goal is simple: provide honest, transparent, and high-quality automotive repair without the traditional dealership hassle. You deal directly with the mechanic working on your car.
+                  </p>
                 </div>
                 
-                <div className="grid sm:grid-cols-2 gap-4 sm:gap-6">
+                <div className="grid sm:grid-cols-2 gap-6 sm:gap-8">
                   {[
                     { title: "Fully Certified", desc: "Licensed and insured.", icon: "M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" },
                     { title: "Transparent Pricing", desc: "No hidden fees ever.", icon: "M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" },
                     { title: "Ultimate Convenience", desc: "I come to you.", icon: "M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" },
                     { title: "All Makes & Models", desc: "Domestic & Import.", icon: "M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" }
                   ].map((feature, i) => (
-                    <div key={i} className="group flex items-start gap-4 sm:gap-5 bg-white p-5 rounded-2xl border border-gray-100 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-300 cursor-default">
-                      <div className="w-12 h-12 sm:w-14 sm:h-14 shrink-0 rounded-xl bg-orange-50 group-hover:bg-[#FF9500] flex items-center justify-center text-[#FF9500] group-hover:text-white transition-colors duration-300">
-                        <svg className="w-6 h-6 sm:w-7 sm:h-7 group-hover:scale-110 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <div key={i} className="flex items-start gap-4 sm:gap-5">
+                      <div className="w-12 h-12 sm:w-14 sm:h-14 shrink-0 rounded-2xl bg-[#F5F5F7] flex items-center justify-center text-[#FF9500]">
+                        <svg className="w-6 h-6 sm:w-7 sm:h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={feature.icon} />
                         </svg>
                       </div>
                       <div>
-                        <h3 className="font-semibold text-lg tracking-tight text-[#1D1D1F] group-hover:text-[#FF9500] transition-colors duration-300">{feature.title}</h3>
-                        <p className="text-sm sm:text-base text-gray-500 mt-1">{feature.desc}</p>
+                        <h3 className="font-semibold text-lg tracking-tight text-[#1D1D1F]">{feature.title}</h3>
+                        <p className="text-sm sm:text-base text-gray-600 mt-1">{feature.desc}</p>
                       </div>
                     </div>
                   ))}
@@ -325,42 +319,57 @@ export default function Home() {
         </section>
 
         {/* Guarantees & Certifications (Authority Bias) */}
-        <section className="w-full bg-[#F5F5F7] py-16 sm:py-24 lg:py-32 border-b border-gray-200">
-          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center space-y-4 mb-12 sm:mb-20">
-              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-[#1D1D1F]">The MR.Mech Guarantee</h2>
-              <p className="text-lg sm:text-xl text-gray-600">Your vehicle is in the hands of a certified professional.</p>
+        <section className="relative w-full bg-[#F5F5F7] py-16 sm:py-24 lg:py-32 border-b border-gray-200 overflow-hidden">
+          {/* Subtle Background Glow */}
+          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-[#34C759] opacity-[0.04] blur-[100px] rounded-full pointer-events-none"></div>
+          
+          <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 z-10">
+            <div className="text-center space-y-4 mb-12 sm:mb-20 flex flex-col items-center">
+              <div className="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-full bg-white shadow-sm border border-gray-100 text-[#34C759] font-bold text-sm mb-2 animate-[fadeInUp_0.8s_ease-out_both]">
+                <svg className="w-4 h-4 animate-pulse" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.317C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001zm11.541 3.708a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" /></svg>
+                100% Satisfaction Promise
+              </div>
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-[#1D1D1F] animate-[fadeInUp_0.8s_ease-out_0.1s_both]">
+                The MR.Mech <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#34C759] to-[#28A745]">Guarantee</span>
+              </h2>
+              <p className="text-lg sm:text-xl text-gray-600 max-w-2xl animate-[fadeInUp_0.8s_ease-out_0.2s_both]">Your vehicle is in the hands of a certified professional.</p>
             </div>
             
             <div className="grid md:grid-cols-3 gap-6 sm:gap-8">
               {[
-                { title: "Red Seal Certified", desc: "Alberta Journeyman certified. The highest standard of automotive repair in Canada.", icon: "M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" },
-                { title: "12-Month Warranty", desc: "Every repair is backed by a 12-month or 20,000km warranty on parts and labor.", icon: "M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" },
-                { title: "Fully Insured", desc: "Covered by $2M commercial liability insurance. Your property is completely protected.", icon: "M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" }
+                { title: "Red Seal Certified", desc: "Alberta Journeyman certified. The highest standard of automotive repair in Canada.", icon: "M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z", delay: "0.3s" },
+                { title: "12-Month Warranty", desc: "Every repair is backed by a 12-month or 20,000km warranty on parts and labor.", icon: "M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z", delay: "0.4s" },
+                { title: "Fully Insured", desc: "Covered by $2M commercial liability insurance. Your property is completely protected.", icon: "M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4", delay: "0.5s" }
               ].map((guarantee, i) => (
-                <div key={i} className="bg-white p-8 sm:p-10 rounded-[2rem] shadow-sm border border-gray-200 flex flex-col items-center text-center space-y-5 hover:shadow-md transition-shadow">
-                  <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-[#34C759]/10 flex items-center justify-center text-[#34C759] mb-2">
-                    <svg className="w-8 h-8 sm:w-10 sm:h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={guarantee.icon} />
+                <div key={i} className={`group relative bg-white/80 backdrop-blur-xl p-8 sm:p-10 rounded-[2.5rem] shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-white flex flex-col items-center text-center space-y-5 hover:shadow-[0_20px_40px_rgb(52,199,89,0.1)] hover:-translate-y-2 transition-all duration-500 overflow-hidden animate-[fadeInUp_0.8s_ease-out_both]`} style={{ animationDelay: guarantee.delay }}>
+                  {/* Subtle hover gradient background */}
+                  <div className="absolute inset-0 bg-gradient-to-b from-[#34C759]/[0.03] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                  
+                  <div className="relative w-20 h-20 sm:w-24 sm:h-24 rounded-3xl bg-gradient-to-br from-white to-gray-50 flex items-center justify-center text-[#34C759] mb-2 group-hover:scale-110 transition-transform duration-500 shadow-[0_4px_20px_rgb(0,0,0,0.05)] border border-gray-100 z-10">
+                    {/* Glow effect behind icon */}
+                    <div className="absolute inset-0 bg-[#34C759] blur-xl opacity-0 group-hover:opacity-20 transition-opacity duration-500 rounded-3xl"></div>
+                    <svg className="w-10 h-10 sm:w-12 sm:h-12 relative z-20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d={guarantee.icon} />
                     </svg>
                   </div>
-                  <h3 className="text-xl sm:text-2xl font-bold tracking-tight text-[#1D1D1F]">{guarantee.title}</h3>
-                  <p className="text-gray-600 leading-relaxed text-base sm:text-lg">{guarantee.desc}</p>
+                  
+                  <h3 className="text-xl sm:text-2xl font-bold tracking-tight text-[#1D1D1F] relative z-10 group-hover:text-[#34C759] transition-colors duration-300">{guarantee.title}</h3>
+                  <p className="text-gray-600 leading-relaxed text-base sm:text-lg relative z-10">{guarantee.desc}</p>
                 </div>
               ))}
             </div>
             
             {/* Trust Logos (Bandwagon/Authority) */}
-            <div className="mt-16 sm:mt-24 pt-12 border-t border-gray-200">
-              <p className="text-center text-sm font-semibold text-gray-500 uppercase tracking-wider mb-8">Proudly Servicing All Major Brands</p>
-              <div className="flex flex-wrap justify-center items-center gap-8 sm:gap-16 opacity-60 grayscale hover:grayscale-0 transition-all duration-500">
+            <div className="mt-16 sm:mt-24 pt-12 border-t border-gray-200/60 relative z-10 animate-[fadeInUp_0.8s_ease-out_0.6s_both]">
+              <p className="text-center text-sm font-bold text-gray-400 uppercase tracking-widest mb-8">Proudly Servicing All Major Brands</p>
+              <div className="flex flex-wrap justify-center items-center gap-8 sm:gap-16 opacity-50 grayscale hover:grayscale-0 hover:opacity-100 transition-all duration-700">
                 {/* Placeholder SVGs for Car Brands (Toyota, Honda, Ford, etc.) */}
-                <div className="text-xl sm:text-2xl font-bold tracking-tighter text-gray-800">TOYOTA</div>
-                <div className="text-xl sm:text-2xl font-bold tracking-tighter text-gray-800">HONDA</div>
-                <div className="text-xl sm:text-2xl font-bold tracking-tighter text-gray-800">FORD</div>
-                <div className="text-xl sm:text-2xl font-bold tracking-tighter text-gray-800">CHEVROLET</div>
-                <div className="text-xl sm:text-2xl font-bold tracking-tighter text-gray-800">BMW</div>
-                <div className="text-xl sm:text-2xl font-bold tracking-tighter text-gray-800">AUDI</div>
+                <div className="text-xl sm:text-2xl font-extrabold tracking-tighter text-gray-800 hover:text-[#34C759] transition-colors duration-300 cursor-default">TOYOTA</div>
+                <div className="text-xl sm:text-2xl font-extrabold tracking-tighter text-gray-800 hover:text-[#34C759] transition-colors duration-300 cursor-default">HONDA</div>
+                <div className="text-xl sm:text-2xl font-extrabold tracking-tighter text-gray-800 hover:text-[#34C759] transition-colors duration-300 cursor-default">FORD</div>
+                <div className="text-xl sm:text-2xl font-extrabold tracking-tighter text-gray-800 hover:text-[#34C759] transition-colors duration-300 cursor-default">CHEVROLET</div>
+                <div className="text-xl sm:text-2xl font-extrabold tracking-tighter text-gray-800 hover:text-[#34C759] transition-colors duration-300 cursor-default">BMW</div>
+                <div className="text-xl sm:text-2xl font-extrabold tracking-tighter text-gray-800 hover:text-[#34C759] transition-colors duration-300 cursor-default">AUDI</div>
               </div>
             </div>
           </div>

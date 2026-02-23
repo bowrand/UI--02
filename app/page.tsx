@@ -3,7 +3,6 @@ import BrandsMarquee from "./components/BrandsMarquee";
 import ComparisonTable from "./components/ComparisonTable";
 import FAQAccordion from "./components/FAQAccordion";
 import FounderSection from "./components/FounderSection";
-import RecentRepairs from "./components/RecentRepairs";
 
 export default function Home() {
   const jsonLd = {
@@ -215,7 +214,62 @@ export default function Home() {
           </div>
         </section>
 
-        <RecentRepairs />
+        {/* Recent Work Gallery (Proof of Competence) */}
+        <section className="w-full bg-white py-16 sm:py-24 lg:py-32 border-b border-gray-100">
+          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="flex flex-col sm:flex-row justify-between items-start sm:items-end mb-12 sm:mb-16 gap-6">
+              <div className="space-y-4">
+                <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-[#1D1D1F]">Recent Mobile Repairs</h2>
+                <p className="text-lg sm:text-xl text-gray-600">Real jobs done right in Calgary driveways.</p>
+              </div>
+              <a href="#callback-form" className="text-[#FF9500] font-semibold hover:underline flex items-center gap-1 text-lg">
+                Book Your Repair
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
+              </a>
+            </div>
+            
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+              {[
+                { title: "Brake Pad Replacement", location: "NW Calgary", icon: "M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z", before: "Squeaking brakes", after: "Smooth, silent stopping" },
+                { title: "Alternator Swap", location: "Downtown Office Parkade", icon: "M13 10V3L4 14h7v7l9-11h-7z", before: "Car wouldn't start", after: "Running perfectly in 2 hrs" },
+                { title: "Pre-Purchase Inspection", location: "SE Calgary", icon: "M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4", before: "Uncertain buyer", after: "Full 150-point report provided" }
+              ].map((job, i) => (
+                <div key={i} className="group relative rounded-[2rem] overflow-hidden bg-gray-100 aspect-[4/3] border border-gray-200 shadow-sm flex flex-col">
+                  {/* Placeholder Image Background */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-gray-200 to-gray-300 flex items-center justify-center group-hover:scale-105 transition-transform duration-700 ease-out">
+                    <svg className="w-16 h-16 text-gray-400 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z" />
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 13a3 3 0 11-6 0 3 3 0 016 0z" />
+                    </svg>
+                  </div>
+                  {/* Overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent opacity-90"></div>
+                  <div className="absolute bottom-0 left-0 p-6 sm:p-8 w-full">
+                    <div className="flex items-center gap-2 text-[#FF9500] mb-3">
+                      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={job.icon} />
+                      </svg>
+                      <span className="text-sm font-semibold tracking-wide uppercase">{job.location}</span>
+                    </div>
+                    <h3 className="text-xl sm:text-2xl font-bold tracking-tight text-white mb-4">{job.title}</h3>
+                    
+                    {/* Before/After Micro-Case Study */}
+                    <div className="flex flex-col gap-2 text-sm sm:text-base">
+                      <div className="flex items-center gap-2 text-gray-300">
+                        <span className="w-1.5 h-1.5 rounded-full bg-red-500"></span>
+                        <span className="font-medium text-gray-400">Issue:</span> {job.before}
+                      </div>
+                      <div className="flex items-center gap-2 text-white">
+                        <span className="w-1.5 h-1.5 rounded-full bg-[#34C759]"></span>
+                        <span className="font-medium text-gray-300">Result:</span> {job.after}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
 
         <BrandsMarquee />
 

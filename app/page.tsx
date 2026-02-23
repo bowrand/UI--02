@@ -499,7 +499,7 @@ export default function Home() {
                 Ready to Get Back on the Road?
               </h2>
               <p className="text-lg sm:text-xl lg:text-2xl text-white/60 max-w-2xl mx-auto leading-relaxed font-medium">
-                Skip the tow truck and the waiting room. Book your mobile mechanic today. <span className="text-[#FF9500] font-semibold">Only 2 spots left for tomorrow!</span>
+                Skip the tow truck and the waiting room. Book your mobile mechanic today. <span className="text-[#FF9500] font-semibold">Secure your appointment today.</span>
               </p>
               
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 pt-4 sm:pt-6">

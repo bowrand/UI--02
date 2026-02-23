@@ -320,9 +320,6 @@ export default function Home() {
 
         {/* Guarantees & Certifications (Authority Bias) */}
         <section className="relative w-full bg-[#F5F5F7] py-16 sm:py-24 lg:py-32 border-b border-gray-200 overflow-hidden">
-          {/* Subtle Background Glow */}
-          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-[#34C759] opacity-[0.04] blur-[100px] rounded-full pointer-events-none"></div>
-          
           <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 z-10">
             <div className="text-center space-y-4 mb-12 sm:mb-20 flex flex-col items-center">
               <div className="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-full bg-white shadow-sm border border-gray-100 text-[#34C759] font-bold text-sm mb-2 animate-[fadeInUp_0.8s_ease-out_both]">
@@ -330,7 +327,7 @@ export default function Home() {
                 100% Satisfaction Promise
               </div>
               <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-[#1D1D1F] animate-[fadeInUp_0.8s_ease-out_0.1s_both]">
-                The MR.Mech <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#34C759] to-[#28A745]">Guarantee</span>
+                The MR.Mech Guarantee
               </h2>
               <p className="text-lg sm:text-xl text-gray-600 max-w-2xl animate-[fadeInUp_0.8s_ease-out_0.2s_both]">Your vehicle is in the hands of a certified professional.</p>
             </div>
@@ -341,15 +338,24 @@ export default function Home() {
                 { title: "12-Month Warranty", desc: "Every repair is backed by a 12-month or 20,000km warranty on parts and labor.", icon: "M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z", delay: "0.4s" },
                 { title: "Fully Insured", desc: "Covered by $2M commercial liability insurance. Your property is completely protected.", icon: "M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4", delay: "0.5s" }
               ].map((guarantee, i) => (
-                <div key={i} className={`group relative bg-white/80 backdrop-blur-xl p-8 sm:p-10 rounded-[2.5rem] shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-white flex flex-col items-center text-center space-y-5 hover:shadow-[0_20px_40px_rgb(52,199,89,0.1)] hover:-translate-y-2 transition-all duration-500 overflow-hidden animate-[fadeInUp_0.8s_ease-out_both]`} style={{ animationDelay: guarantee.delay }}>
-                  {/* Subtle hover gradient background */}
-                  <div className="absolute inset-0 bg-gradient-to-b from-[#34C759]/[0.03] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                <div key={i} className={`group relative bg-white p-8 sm:p-10 rounded-[2rem] border border-gray-100 flex flex-col items-center text-center space-y-5 hover:shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:-translate-y-1 transition-all duration-500 overflow-hidden animate-[fadeInUp_0.8s_ease-out_both]`} style={{ animationDelay: guarantee.delay }}>
                   
-                  <div className="relative w-20 h-20 sm:w-24 sm:h-24 rounded-3xl bg-gradient-to-br from-white to-gray-50 flex items-center justify-center text-[#34C759] mb-2 group-hover:scale-110 transition-transform duration-500 shadow-[0_4px_20px_rgb(0,0,0,0.05)] border border-gray-100 z-10">
-                    {/* Glow effect behind icon */}
-                    <div className="absolute inset-0 bg-[#34C759] blur-xl opacity-0 group-hover:opacity-20 transition-opacity duration-500 rounded-3xl"></div>
-                    <svg className="w-10 h-10 sm:w-12 sm:h-12 relative z-20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d={guarantee.icon} />
+                  <div className="relative w-20 h-20 sm:w-24 sm:h-24 rounded-full bg-gray-50 group-hover:bg-white flex items-center justify-center text-gray-800 group-hover:text-[#34C759] transition-all duration-500 mb-2 group-hover:shadow-sm border border-transparent group-hover:border-gray-100">
+                    {/* Rotating dashed ring on hover */}
+                    <svg className="absolute inset-0 w-full h-full text-[#34C759] opacity-0 group-hover:opacity-100 group-hover:animate-[spin_10s_linear_infinite] transition-opacity duration-500" viewBox="0 0 100 100">
+                      <circle cx="50" cy="50" r="48" fill="none" stroke="currentColor" strokeWidth="1" strokeDasharray="6 6" />
+                    </svg>
+                    
+                    <svg className="w-10 h-10 sm:w-12 sm:h-12 relative z-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path 
+                        strokeLinecap="round" 
+                        strokeLinejoin="round" 
+                        strokeWidth={1.5} 
+                        d={guarantee.icon} 
+                        pathLength="100"
+                        strokeDasharray="100"
+                        className="group-hover:animate-draw"
+                      />
                     </svg>
                   </div>
                   

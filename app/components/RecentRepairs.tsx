@@ -100,7 +100,7 @@ export default function RecentRepairs() {
 
         <motion.div
           layout
-          className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8"
+          className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8"
         >
           <AnimatePresence>
             {displayedRepairs.map((job) => (
@@ -111,14 +111,14 @@ export default function RecentRepairs() {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, scale: 0.95 }}
                 transition={{ duration: 0.4, ease: [0.23, 1, 0.32, 1] }}
-                className="group flex flex-col bg-white rounded-[2rem] border border-gray-200 shadow-sm hover:shadow-xl hover:border-gray-300 transition-all duration-500 overflow-hidden"
+                className="group flex flex-col sm:flex-row bg-white rounded-[2rem] border border-gray-200 shadow-sm hover:shadow-xl hover:border-gray-300 transition-all duration-500 overflow-hidden"
               >
-                {/* Image Section (Top Half) */}
-                <div className="relative w-full aspect-[16/9] bg-gray-100 overflow-hidden">
+                {/* Image Section (Left Half on Desktop) */}
+                <div className="relative w-full sm:w-2/5 aspect-[16/9] sm:aspect-auto bg-gray-100 overflow-hidden flex-shrink-0">
                   {/* Placeholder for actual image */}
                   <div className="absolute inset-0 bg-gradient-to-br from-gray-100 to-gray-200 flex flex-col items-center justify-center group-hover:scale-105 transition-transform duration-700 ease-out">
                     <svg
-                      className="w-12 h-12 text-gray-400 mb-2 opacity-50"
+                      className="w-10 h-10 sm:w-12 sm:h-12 text-gray-400 mb-2 opacity-50"
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
@@ -136,7 +136,7 @@ export default function RecentRepairs() {
                         d="M15 13a3 3 0 11-6 0 3 3 0 016 0z"
                       />
                     </svg>
-                    <span className="text-sm font-medium text-gray-500">{job.imagePlaceholder}</span>
+                    <span className="text-xs sm:text-sm font-medium text-gray-500">{job.imagePlaceholder}</span>
                   </div>
                   
                   {/* Vehicle Type Badge */}
@@ -145,8 +145,8 @@ export default function RecentRepairs() {
                   </div>
                 </div>
 
-                {/* Info Section (Bottom Half) */}
-                <div className="p-6 sm:p-8 flex flex-col flex-grow">
+                {/* Info Section (Right Half on Desktop) */}
+                <div className="p-6 sm:p-8 flex flex-col flex-grow justify-center">
                   <div className="flex items-center gap-2 text-[#FF9500] mb-3">
                     <svg
                       className="w-4 h-4"

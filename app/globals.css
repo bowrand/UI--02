@@ -7,6 +7,7 @@
   --animate-shimmer: shimmer 2.5s infinite linear;
   --animate-fadeInUp: fadeInUp 0.8s ease-out both;
   --animate-fadeIn: fadeIn 1.2s ease-out both;
+  --animate-gradient-x: gradient-x 4s ease infinite;
   
   @keyframes float {
     0%, 100% { transform: translateY(0); }
@@ -23,6 +24,10 @@
   @keyframes fadeIn {
     0% { opacity: 0; }
     100% { opacity: 1; }
+  }
+  @keyframes gradient-x {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
   }
 }
 

@@ -83,7 +83,7 @@ export default function Home() {
             
             {/* Top Trust Signals (Moved up for immediate mobile impact) */}
             <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-4 animate-[fadeInUp_0.8s_ease-out_0.1s_both]">
-              <div className="relative inline-flex items-center gap-1.5 px-3 py-1.5 sm:px-4 sm:py-2 rounded-full bg-white shadow-sm border border-gray-100 overflow-hidden group cursor-default">
+              <div className="relative inline-flex items-center gap-1.5 px-3 py-1.5 sm:px-4 sm:py-2 rounded-full bg-white shadow-sm border border-gray-100 overflow-hidden group cursor-default hover:-translate-y-0.5 transition-transform duration-300">
                 <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/80 to-transparent -translate-x-full animate-shimmer z-10"></div>
                 <svg className="w-4 h-4 sm:w-5 sm:h-5 text-[#34C759] animate-pulse relative z-20" fill="currentColor" viewBox="0 0 20 20">
                   <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
@@ -91,7 +91,7 @@ export default function Home() {
                 <span className="text-xs sm:text-sm font-bold text-gray-800 relative z-20">Red Seal Certified</span>
               </div>
               
-              <div className="flex items-center gap-1.5 bg-orange-50 px-3 py-1.5 sm:px-4 sm:py-2 rounded-full border border-orange-100">
+              <div className="flex items-center gap-1.5 bg-orange-50 px-3 py-1.5 sm:px-4 sm:py-2 rounded-full border border-orange-100 hover:-translate-y-0.5 transition-transform duration-300 cursor-default">
                 <div className="flex text-[#FF9500]">
                   {[...Array(5)].map((_, i) => (
                     <svg key={i} className="w-3.5 h-3.5 sm:w-4 sm:h-4" fill="currentColor" viewBox="0 0 20 20">
@@ -105,7 +105,7 @@ export default function Home() {
             
             <h1 className="text-[2.75rem] sm:text-5xl lg:text-7xl font-extrabold tracking-tighter text-[#1D1D1F] leading-[1.05] sm:leading-[1.05] text-center sm:text-left animate-[fadeInUp_0.8s_ease-out_0.2s_both]">
               Calgary's Trusted <br className="hidden sm:block" />
-              <span className="bg-gradient-to-r from-[#FF9500] to-[#FF5E3A] bg-clip-text text-transparent drop-shadow-sm">Mobile Mechanic.</span>
+              <span className="bg-gradient-to-r from-[#FF9500] via-[#FF5E3A] to-[#FF9500] bg-[length:200%_auto] animate-gradient-x bg-clip-text text-transparent drop-shadow-sm">Mobile Mechanic.</span>
             </h1>
             
             <p className="text-[1.1rem] sm:text-xl lg:text-2xl text-gray-600 max-w-2xl leading-relaxed sm:leading-normal font-medium text-center sm:text-left animate-[fadeInUp_0.8s_ease-out_0.3s_both]">
@@ -113,13 +113,16 @@ export default function Home() {
             </p>
             
             <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-4 pt-2 sm:pt-6 w-full max-w-md sm:max-w-none mx-auto sm:mx-0 animate-[fadeInUp_0.8s_ease-out_0.4s_both]">
-              <a
-                href="tel:+14035550199"
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 sm:py-5 text-lg font-bold text-white bg-[#FF9500] rounded-full hover:bg-[#E58600] active:scale-95 transition-all shadow-[0_8px_30px_rgb(255,149,0,0.3)] hover:shadow-[0_8px_30px_rgb(255,149,0,0.5)] min-h-[56px] sm:min-w-[240px]"
-              >
-                <svg className="w-5 h-5 sm:w-6 sm:h-6 animate-pulse" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" /></svg>
-                Call David Now
-              </a>
+              <div className="relative w-full sm:w-auto group">
+                <div className="absolute inset-0 bg-[#FF9500] rounded-full blur-md opacity-40 group-hover:opacity-70 group-hover:blur-lg transition-all duration-500 animate-pulse-slow"></div>
+                <a
+                  href="tel:+14035550199"
+                  className="relative w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 sm:py-5 text-lg font-bold text-white bg-[#FF9500] rounded-full hover:bg-[#E58600] active:scale-95 transition-all shadow-[0_8px_30px_rgb(255,149,0,0.3)] hover:shadow-[0_8px_30px_rgb(255,149,0,0.5)] min-h-[56px] sm:min-w-[240px]"
+                >
+                  <svg className="w-5 h-5 sm:w-6 sm:h-6 animate-pulse" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" /></svg>
+                  Call David Now
+                </a>
+              </div>
               <a
                 href="#callback-form"
                 className="w-full sm:w-auto inline-flex items-center justify-center px-8 py-4 sm:py-5 text-lg font-semibold text-gray-700 bg-gray-100 border border-transparent rounded-full hover:bg-gray-200 active:scale-95 transition-all min-h-[56px] sm:min-w-[240px]"

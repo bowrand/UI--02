@@ -2,82 +2,82 @@
 
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
+import {
+  SiToyota,
+  SiHonda,
+  SiFord,
+  SiChevrolet,
+  SiBmw,
+  SiAudi,
+  SiMercedes,
+  SiVolkswagen,
+  SiHyundai,
+  SiNissan,
+  SiJeep,
+  SiSubaru,
+  SiKia,
+  SiMazda,
+} from "react-icons/si";
 
-const brands = ["TOYOTA", "HONDA", "FORD", "CHEVROLET", "BMW", "AUDI"];
-
-const container = {
-  hidden: {},
-  visible: {
-    transition: {
-      staggerChildren: 0.08,
-      delayChildren: 0.2,
-    },
-  },
-};
-
-const item = {
-  hidden: { opacity: 0, y: 20, filter: "blur(8px)" },
-  visible: {
-    opacity: 1,
-    y: 0,
-    filter: "blur(0px)",
-    transition: {
-      type: "spring" as const,
-      stiffness: 100,
-      damping: 12,
-      mass: 0.5,
-    },
-  },
-};
-
-const headingVariant = {
-  hidden: { opacity: 0, y: 10 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] as const },
-  },
-};
+const brands = [
+  { name: "Toyota", icon: SiToyota },
+  { name: "Honda", icon: SiHonda },
+  { name: "Ford", icon: SiFord },
+  { name: "Chevrolet", icon: SiChevrolet },
+  { name: "BMW", icon: SiBmw },
+  { name: "Audi", icon: SiAudi },
+  { name: "Mercedes", icon: SiMercedes },
+  { name: "Volkswagen", icon: SiVolkswagen },
+  { name: "Hyundai", icon: SiHyundai },
+  { name: "Nissan", icon: SiNissan },
+  { name: "Jeep", icon: SiJeep },
+  { name: "Subaru", icon: SiSubaru },
+  { name: "Kia", icon: SiKia },
+  { name: "Mazda", icon: SiMazda },
+];
 
 export default function BrandsMarquee() {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-80px" });
+  const isInView = useInView(ref, { once: true, margin: "-50px" });
 
   return (
-    <div
+    <section
       ref={ref}
-      className="mt-16 sm:mt-24 pt-12 border-t border-gray-200/60 relative z-10"
+      className="w-full bg-[#F9FAFB] py-12 sm:py-16 border-b border-gray-100 overflow-hidden relative z-10"
     >
-      <motion.p
-        variants={headingVariant}
-        initial="hidden"
-        animate={isInView ? "visible" : "hidden"}
-        className="text-center text-sm font-bold text-gray-400 uppercase tracking-widest mb-10"
-      >
-        Proudly Servicing All Major Brands
-      </motion.p>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-8 sm:mb-12">
+        <motion.p
+          initial={{ opacity: 0, y: 10 }}
+          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 10 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+          className="text-center text-sm font-bold text-gray-400 uppercase tracking-widest"
+        >
+          Trusted to service all major makes & models
+        </motion.p>
+      </div>
 
-      <motion.div
-        variants={container}
-        initial="hidden"
-        animate={isInView ? "visible" : "hidden"}
-        className="flex flex-wrap justify-center items-center gap-8 sm:gap-14"
-      >
-        {brands.map((brand) => (
-          <motion.div
-            key={brand}
-            variants={item}
-            whileHover={{
-              scale: 1.12,
-              color: "#1D1D1F",
-              transition: { type: "spring", stiffness: 300, damping: 15 },
-            }}
-            className="text-xl sm:text-2xl font-extrabold tracking-tighter text-gray-300 cursor-default select-none"
-          >
-            {brand}
-          </motion.div>
-        ))}
-      </motion.div>
-    </div>
+      {/* Marquee Container */}
+      <div className="relative flex overflow-hidden group">
+        {/* Gradient Masks for smooth fade in/out at edges */}
+        <div className="absolute top-0 left-0 w-16 sm:w-32 h-full bg-gradient-to-r from-[#F9FAFB] to-transparent z-10 pointer-events-none"></div>
+        <div className="absolute top-0 right-0 w-16 sm:w-32 h-full bg-gradient-to-l from-[#F9FAFB] to-transparent z-10 pointer-events-none"></div>
+
+        {/* Scrolling Track */}
+        <div className="flex w-max animate-marquee group-hover:[animation-play-state:paused]">
+          {/* Duplicate the list twice to ensure seamless looping */}
+          {[...brands, ...brands].map((brand, i) => (
+            <div
+              key={i}
+              className="flex flex-col items-center justify-center mx-6 sm:mx-10 min-w-[80px] sm:min-w-[100px] group/brand cursor-pointer"
+            >
+              <brand.icon className="w-10 h-10 sm:w-12 sm:h-12 text-gray-300 group-hover/brand:text-[#1D1D1F] transition-colors duration-300" />
+              <span className="mt-3 text-xs sm:text-sm font-semibold text-gray-400 group-hover/brand:text-[#1D1D1F] opacity-0 group-hover/brand:opacity-100 transition-all duration-300 translate-y-2 group-hover/brand:translate-y-0">
+                {brand.name}
+              </span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
   );
 }

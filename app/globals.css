@@ -10,6 +10,7 @@
   --animate-gradient-x: gradient-x 4s ease infinite;
   --animate-draw: draw 1.5s ease-out forwards;
   --animate-marquee: marquee 50s linear infinite;
+  --animate-marquee-reverse: marquee-reverse 50s linear infinite;
   
   @keyframes float {
     0%, 100% { transform: translateY(0); }
@@ -38,6 +39,10 @@
   @keyframes marquee {
     0% { transform: translateX(0); }
     100% { transform: translateX(-50%); }
+  }
+  @keyframes marquee-reverse {
+    0% { transform: translateX(-50%); }
+    100% { transform: translateX(0); }
   }
 }
 

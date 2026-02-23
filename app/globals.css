@@ -9,7 +9,7 @@
   --animate-fadeIn: fadeIn 1.2s ease-out both;
   --animate-gradient-x: gradient-x 4s ease infinite;
   --animate-draw: draw 1.5s ease-out forwards;
-  --animate-marquee: marquee 40s linear infinite;
+  --animate-marquee: marquee 50s linear infinite;
   
   @keyframes float {
     0%, 100% { transform: translateY(0); }

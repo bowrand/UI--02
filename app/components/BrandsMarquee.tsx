@@ -20,20 +20,20 @@ import {
 } from "react-icons/si";
 
 const brands = [
-  { name: "Toyota", icon: SiToyota },
-  { name: "Honda", icon: SiHonda },
-  { name: "Ford", icon: SiFord },
-  { name: "Chevrolet", icon: SiChevrolet },
-  { name: "BMW", icon: SiBmw },
-  { name: "Audi", icon: SiAudi },
-  { name: "Mercedes", icon: SiMercedes },
-  { name: "Volkswagen", icon: SiVolkswagen },
-  { name: "Hyundai", icon: SiHyundai },
-  { name: "Nissan", icon: SiNissan },
-  { name: "Jeep", icon: SiJeep },
-  { name: "Subaru", icon: SiSubaru },
-  { name: "Kia", icon: SiKia },
-  { name: "Mazda", icon: SiMazda },
+  { name: "Toyota", icon: SiToyota, color: "#EB0A1E" },
+  { name: "Honda", icon: SiHonda, color: "#E40521" },
+  { name: "Ford", icon: SiFord, color: "#003478" },
+  { name: "Chevrolet", icon: SiChevrolet, color: "#CD9834" },
+  { name: "BMW", icon: SiBmw, color: "#0066B1" },
+  { name: "Audi", icon: SiAudi, color: "#000000" },
+  { name: "Mercedes", icon: SiMercedes, color: "#000000" },
+  { name: "Volkswagen", icon: SiVolkswagen, color: "#001E50" },
+  { name: "Hyundai", icon: SiHyundai, color: "#002C5F" },
+  { name: "Nissan", icon: SiNissan, color: "#C3002F" },
+  { name: "Jeep", icon: SiJeep, color: "#FFBA00" },
+  { name: "Subaru", icon: SiSubaru, color: "#013C74" },
+  { name: "Kia", icon: SiKia, color: "#05141F" },
+  { name: "Mazda", icon: SiMazda, color: "#101010" },
 ];
 
 export default function BrandsMarquee() {
@@ -63,15 +63,18 @@ export default function BrandsMarquee() {
         <div className="absolute top-0 right-0 w-16 sm:w-32 h-full bg-gradient-to-l from-[#F9FAFB] to-transparent z-10 pointer-events-none"></div>
 
         {/* Scrolling Track */}
-        <div className="flex w-max animate-marquee group-hover:[animation-play-state:paused]">
+        <div className="flex w-max animate-marquee group-hover:[animation-play-state:paused] py-4">
           {/* Duplicate the list twice to ensure seamless looping */}
           {[...brands, ...brands].map((brand, i) => (
             <div
               key={i}
-              className="flex flex-col items-center justify-center mx-6 sm:mx-10 min-w-[80px] sm:min-w-[100px] group/brand cursor-pointer"
+              className="flex items-center justify-center gap-3 px-6 py-3 mx-3 sm:mx-4 bg-white rounded-full shadow-sm border border-gray-100 group/brand cursor-pointer hover:shadow-md hover:-translate-y-1 transition-all duration-300"
             >
-              <brand.icon className="w-10 h-10 sm:w-12 sm:h-12 text-gray-300 group-hover/brand:text-[#1D1D1F] transition-colors duration-300" />
-              <span className="mt-3 text-xs sm:text-sm font-semibold text-gray-400 group-hover/brand:text-[#1D1D1F] opacity-0 group-hover/brand:opacity-100 transition-all duration-300 translate-y-2 group-hover/brand:translate-y-0">
+              <brand.icon 
+                className="w-6 h-6 sm:w-8 sm:h-8 transition-transform duration-300 group-hover/brand:scale-110" 
+                style={{ color: brand.color }} 
+              />
+              <span className="text-sm sm:text-base font-bold text-gray-700 group-hover/brand:text-gray-900">
                 {brand.name}
               </span>
             </div>

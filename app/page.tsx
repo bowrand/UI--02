@@ -82,7 +82,7 @@ export default function Home() {
           <div className="flex-1 space-y-6 sm:space-y-8 relative z-10 flex flex-col items-center sm:items-start">
             
             {/* Top Trust Signals (Moved up for immediate mobile impact) */}
-            <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-4">
+            <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-4 animate-[fadeInUp_0.8s_ease-out_0.1s_both]">
               <div className="relative inline-flex items-center gap-1.5 px-3 py-1.5 sm:px-4 sm:py-2 rounded-full bg-white shadow-sm border border-gray-100 overflow-hidden group cursor-default">
                 <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/80 to-transparent -translate-x-full animate-shimmer z-10"></div>
                 <svg className="w-4 h-4 sm:w-5 sm:h-5 text-[#34C759] animate-pulse relative z-20" fill="currentColor" viewBox="0 0 20 20">
@@ -103,16 +103,16 @@ export default function Home() {
               </div>
             </div>
             
-            <h1 className="text-[2.75rem] sm:text-5xl lg:text-7xl font-extrabold tracking-tighter text-[#1D1D1F] leading-[1.05] sm:leading-[1.05] text-center sm:text-left">
+            <h1 className="text-[2.75rem] sm:text-5xl lg:text-7xl font-extrabold tracking-tighter text-[#1D1D1F] leading-[1.05] sm:leading-[1.05] text-center sm:text-left animate-[fadeInUp_0.8s_ease-out_0.2s_both]">
               Calgary's Trusted <br className="hidden sm:block" />
               <span className="bg-gradient-to-r from-[#FF9500] to-[#FF5E3A] bg-clip-text text-transparent drop-shadow-sm">Mobile Mechanic.</span>
             </h1>
             
-            <p className="text-[1.1rem] sm:text-xl lg:text-2xl text-gray-600 max-w-2xl leading-relaxed sm:leading-normal font-medium text-center sm:text-left">
+            <p className="text-[1.1rem] sm:text-xl lg:text-2xl text-gray-600 max-w-2xl leading-relaxed sm:leading-normal font-medium text-center sm:text-left animate-[fadeInUp_0.8s_ease-out_0.3s_both]">
               We fix your car at your home or workplace. Fully certified, transparent pricing, zero hassle. Let David come to you.
             </p>
             
-            <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-4 pt-2 sm:pt-6 w-full max-w-md sm:max-w-none mx-auto sm:mx-0">
+            <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-4 pt-2 sm:pt-6 w-full max-w-md sm:max-w-none mx-auto sm:mx-0 animate-[fadeInUp_0.8s_ease-out_0.4s_both]">
               <a
                 href="tel:+14035550199"
                 className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 sm:py-5 text-lg font-bold text-white bg-[#FF9500] rounded-full hover:bg-[#E58600] active:scale-95 transition-all shadow-[0_8px_30px_rgb(255,149,0,0.3)] hover:shadow-[0_8px_30px_rgb(255,149,0,0.5)] min-h-[56px] sm:min-w-[240px]"
@@ -129,7 +129,7 @@ export default function Home() {
             </div>
             
             {/* Social Proof Avatars (Simplified for mobile) */}
-            <div className="flex items-center justify-center sm:justify-start gap-3 pt-2 w-full">
+            <div className="flex items-center justify-center sm:justify-start gap-3 pt-2 w-full animate-[fadeInUp_0.8s_ease-out_0.5s_both]">
               <div className="flex -space-x-2">
                 <img className="w-8 h-8 sm:w-10 sm:h-10 rounded-full border-2 border-white bg-gray-200 object-cover shadow-sm" src="https://i.pravatar.cc/100?img=1" alt="Customer" />
                 <img className="w-8 h-8 sm:w-10 sm:h-10 rounded-full border-2 border-white bg-gray-200 object-cover shadow-sm" src="https://i.pravatar.cc/100?img=2" alt="Customer" />
@@ -139,7 +139,7 @@ export default function Home() {
             </div>
           </div>
           
-          <div className="flex-1 w-full max-w-md relative z-10">
+          <div className="flex-1 w-full max-w-md relative z-10 animate-[fadeIn_1.2s_ease-out_0.3s_both]">
             <div className="aspect-[4/3] bg-gradient-to-br from-white to-gray-50 rounded-[2rem] shadow-2xl overflow-hidden border border-gray-100 relative flex items-center justify-center group">
               {/* Dynamic SVG Illustration */}
               <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,#FF9500_0%,transparent_40%)] opacity-10 group-hover:opacity-20 transition-opacity duration-700"></div>

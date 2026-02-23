@@ -182,6 +182,9 @@ export default function Home() {
           </div>
         </section>
 
+        <BrandsMarquee />
+        <ComparisonTable />
+
         {/* How It Works Section (Frictionless Process) */}
         <section className="w-full bg-[#1D1D1F] py-16 sm:py-24 lg:py-32 text-white overflow-hidden">
           <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -214,122 +217,7 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Pricing Transparency Section (Anchoring & Trust) */}
-        <section className="w-full bg-white py-16 sm:py-24 lg:py-32 border-b border-gray-100">
-          <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center space-y-5 mb-12 sm:mb-20">
-              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#34C759]/10 text-[#34C759] font-semibold text-sm mb-2">
-                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
-                No Dealership Markup
-              </div>
-              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-[#1D1D1F]">Honest, Upfront Pricing</h2>
-              <p className="text-lg sm:text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">Because I don't have the massive overhead of a physical shop, I pass those savings directly to you. You'll always know the exact cost before I turn a single wrench.</p>
-            </div>
-
-            <div className="grid md:grid-cols-2 gap-6 sm:gap-8 items-center">
-              <div className="bg-[#F5F5F7] p-8 sm:p-10 rounded-[2rem] border border-gray-200 space-y-8">
-                <h3 className="text-2xl sm:text-3xl font-bold tracking-tight text-[#1D1D1F]">The Dealership Way</h3>
-                <ul className="space-y-5">
-                  {[
-                    "High hourly labor rates ($150+/hr)",
-                    "Hidden shop supplies fees",
-                    "Paying for their waiting room coffee",
-                    "You have to arrange a tow truck",
-                    "You wait days for an appointment"
-                  ].map((item, i) => (
-                    <li key={i} className="flex items-start gap-4 text-gray-500 text-base sm:text-lg">
-                      <svg className="w-6 h-6 text-red-400 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" /></svg>
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              <div className="bg-white p-8 sm:p-10 rounded-[2rem] border-2 border-[#FF9500] shadow-2xl space-y-8 relative overflow-hidden">
-                <div className="absolute top-0 right-0 bg-[#FF9500] text-white text-xs sm:text-sm font-bold px-5 py-2 rounded-bl-2xl tracking-wide">MR.MECH WAY</div>
-                <h3 className="text-2xl sm:text-3xl font-bold tracking-tight text-[#1D1D1F]">The MR.Mech Way</h3>
-                <ul className="space-y-5">
-                  {[
-                    "Fair, flat-rate quotes upfront",
-                    "Zero hidden fees or surprises",
-                    "No overhead costs passed to you",
-                    "I drive to you (Zero towing fees)",
-                    "Often available same or next day"
-                  ].map((item, i) => (
-                    <li key={i} className="flex items-start gap-4 text-[#1D1D1F] font-medium text-base sm:text-lg">
-                      <svg className="w-6 h-6 text-[#34C759] shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-                <div className="pt-6">
-                  <a href="#callback-form" className="block w-full py-4 sm:py-5 text-center text-lg font-semibold text-white bg-[#1D1D1F] rounded-2xl hover:bg-black transition-colors min-h-[56px]">
-                    Get a Free Quote
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* About / Why Choose Us */}
-        <section className="relative w-full bg-white py-16 sm:py-24 lg:py-32 border-y border-gray-100 overflow-hidden">
-          {/* Subtle Background Accent */}
-          <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-gray-50/50 to-transparent pointer-events-none"></div>
-          
-          <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 z-10">
-            <div className="flex flex-col lg:flex-row items-center gap-12 sm:gap-16 lg:gap-24">
-              {/* Image/Video Placeholder */}
-              <div className="w-full lg:w-1/2 relative">
-                <div className="aspect-square sm:aspect-[4/3] lg:aspect-square bg-gray-100 rounded-[2.5rem] overflow-hidden relative shadow-2xl border border-gray-200">
-                  <div className="absolute inset-0 bg-gradient-to-tr from-gray-300 to-gray-100 flex flex-col items-center justify-center text-gray-400">
-                    <svg className="w-20 h-20 mb-4 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" /></svg>
-                    <span className="font-medium text-lg">Photo of David</span>
-                  </div>
-                </div>
-                {/* Floating Experience Badge */}
-                <div className="absolute -bottom-6 -right-4 sm:-right-10 bg-white/90 backdrop-blur-xl p-6 sm:p-8 rounded-[2rem] shadow-2xl border border-gray-100 flex items-center gap-4 sm:gap-5 animate-float" style={{ animationDelay: '1s' }}>
-                  <div className="text-4xl sm:text-5xl font-extrabold text-[#FF9500] tracking-tighter">10+</div>
-                  <div className="text-sm sm:text-base font-bold text-[#1D1D1F] leading-tight tracking-tight">Years of<br/>Experience</div>
-                </div>
-              </div>
-              
-              {/* Content */}
-              <div className="w-full lg:w-1/2 space-y-10 sm:space-y-12 mt-12 lg:mt-0">
-                <div className="space-y-5">
-                  <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-[#1D1D1F]">Meet David, Your Local Expert</h2>
-                  <p className="text-lg sm:text-xl text-gray-600 leading-relaxed">
-                    Skip the waiting room and the towing fees. As a fully certified mobile mechanic based right here in Calgary, I bring the repair shop directly to your driveway or office parking lot.
-                  </p>
-                  <p className="text-lg sm:text-xl text-gray-600 leading-relaxed">
-                    My goal is simple: provide honest, transparent, and high-quality automotive repair without the traditional dealership hassle. You deal directly with the mechanic working on your car.
-                  </p>
-                </div>
-                
-                <div className="grid sm:grid-cols-2 gap-6 sm:gap-8">
-                  {[
-                    { title: "Fully Certified", desc: "Licensed and insured.", icon: "M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" },
-                    { title: "Transparent Pricing", desc: "No hidden fees ever.", icon: "M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" },
-                    { title: "Ultimate Convenience", desc: "I come to you.", icon: "M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" },
-                    { title: "All Makes & Models", desc: "Domestic & Import.", icon: "M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" }
-                  ].map((feature, i) => (
-                    <div key={i} className="flex items-start gap-4 sm:gap-5">
-                      <div className="w-12 h-12 sm:w-14 sm:h-14 shrink-0 rounded-2xl bg-[#F5F5F7] flex items-center justify-center text-[#FF9500]">
-                        <svg className="w-6 h-6 sm:w-7 sm:h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={feature.icon} />
-                        </svg>
-                      </div>
-                      <div>
-                        <h3 className="font-semibold text-lg tracking-tight text-[#1D1D1F]">{feature.title}</h3>
-                        <p className="text-sm sm:text-base text-gray-600 mt-1">{feature.desc}</p>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
+        <FounderSection />
 
         {/* Guarantees & Certifications (Authority Bias) */}
         <section className="relative w-full bg-[#F5F5F7] py-16 sm:py-24 lg:py-32 border-b border-gray-200 overflow-hidden">
@@ -377,9 +265,6 @@ export default function Home() {
                 </div>
               ))}
             </div>
-            
-            {/* Trust Logos (Bandwagon/Authority) */}
-            <BrandsMarquee />
           </div>
         </section>
 
@@ -488,6 +373,8 @@ export default function Home() {
             ))}
           </div>
         </section>
+
+        <FAQAccordion />
 
         {/* Final CTA Section (Scarcity & Urgency) */}
         <section className="w-full max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24 lg:py-32">
@@ -629,10 +516,6 @@ export default function Home() {
             </div>
           </div>
         </section>
-
-        <FounderSection />
-        <ComparisonTable />
-        <FAQAccordion />
       </main>
 
       {/* Footer */}

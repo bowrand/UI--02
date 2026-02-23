@@ -489,33 +489,6 @@ export default function Home() {
           </div>
         </section>
 
-        {/* FAQ Section (Removing Friction) */}
-        <section className="w-full bg-[#F5F5F7] py-16 sm:py-24 lg:py-32 border-t border-gray-200">
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center space-y-4 mb-12 sm:mb-20">
-              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-[#1D1D1F]">Frequently Asked Questions</h2>
-              <p className="text-lg sm:text-xl text-gray-600">Everything you need to know about mobile mechanic services.</p>
-            </div>
-            
-            <div className="space-y-4 sm:space-y-6">
-              {[
-                { q: "Do I need to provide tools or parts?", a: "No, I bring a fully equipped mobile shop to your location, including all necessary tools, diagnostic equipment, and high-quality parts." },
-                { q: "What if the weather is bad?", a: "I carry a mobile canopy and weather-resistant gear. Unless it's a severe blizzard or extreme cold warning, I can usually complete the repair." },
-                { q: "How do I pay?", a: "You only pay after the job is completed and you are satisfied. I accept all major Credit Cards, Debit, and E-Transfers on the spot." },
-                { q: "Is there a call-out fee?", a: "There is a standard diagnostic/call-out fee to cover travel and initial inspection. However, if you proceed with the repair, a portion of this fee is applied toward your final bill." }
-              ].map((faq, i) => (
-                <div key={i} className="bg-white p-6 sm:p-8 rounded-[1.5rem] shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
-                  <h3 className="text-lg sm:text-xl font-bold tracking-tight text-[#1D1D1F] mb-3 flex items-start gap-3">
-                    <svg className="w-6 h-6 sm:w-7 sm:h-7 text-[#FF9500] shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
-                    {faq.q}
-                  </h3>
-                  <p className="text-gray-600 pl-9 sm:pl-10 leading-relaxed text-base sm:text-lg">{faq.a}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
         {/* Final CTA Section (Scarcity & Urgency) */}
         <section className="w-full max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24 lg:py-32">
           <div className="bg-[#1C1C1E] border border-white/10 rounded-[2.5rem] sm:rounded-[3rem] p-8 sm:p-16 lg:p-20 text-center shadow-2xl relative overflow-hidden">

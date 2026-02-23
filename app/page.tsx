@@ -167,7 +167,7 @@ export default function Home() {
         </section>
 
         {/* How It Works Section (Frictionless Process) */}
-        <section className="w-full bg-[#1D1D1F] py-16 sm:py-24 lg:py-32 text-white">
+        <section className="w-full bg-[#1D1D1F] py-16 sm:py-24 lg:py-32 text-white overflow-hidden">
           <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center space-y-4 mb-12 sm:mb-20">
               <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight">How It Works</h2>
@@ -183,12 +183,15 @@ export default function Home() {
                 { step: "02", title: "David Arrives", desc: "I come to your home or office in Calgary fully equipped to handle the repair." },
                 { step: "03", title: "You Drive", desc: "Pay only when the job is done right. Backed by a 12-month warranty." }
               ].map((item, i) => (
-                <div key={i} className="relative flex flex-col items-center text-center space-y-5">
-                  <div className="w-24 h-24 rounded-full bg-[#2C2C2E] border-4 border-[#1D1D1F] flex items-center justify-center text-2xl font-bold text-[#FF9500] shadow-xl relative z-10">
+                <div key={i} className="relative flex flex-col items-center text-center space-y-5 group">
+                  {/* Hover Glow Effect */}
+                  <div className="absolute top-0 w-32 h-32 bg-[#FF9500]/0 group-hover:bg-[#FF9500]/20 blur-2xl rounded-full transition-all duration-500 -z-10"></div>
+                  
+                  <div className="w-24 h-24 rounded-full bg-[#2C2C2E] border-4 border-[#1D1D1F] flex items-center justify-center text-2xl font-bold text-[#FF9500] shadow-xl relative z-10 group-hover:scale-110 group-hover:border-[#FF9500]/30 transition-all duration-500 ease-out">
                     {item.step}
                   </div>
-                  <h3 className="text-xl sm:text-2xl font-semibold tracking-tight">{item.title}</h3>
-                  <p className="text-gray-400 leading-relaxed max-w-xs text-base sm:text-lg">{item.desc}</p>
+                  <h3 className="text-xl sm:text-2xl font-semibold tracking-tight group-hover:text-[#FF9500] transition-colors duration-300">{item.title}</h3>
+                  <p className="text-gray-400 leading-relaxed max-w-xs text-base sm:text-lg group-hover:text-gray-300 transition-colors duration-300">{item.desc}</p>
                 </div>
               ))}
             </div>

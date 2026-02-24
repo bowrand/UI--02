@@ -56,28 +56,29 @@ export default function Home() {
       {/* Sticky Header */}
       <header className="sticky top-0 z-50 w-full bg-white/80 backdrop-blur-2xl border-b border-gray-200/50 shadow-sm" role="banner">
         {/* Top Announcement Bar (Urgency/Scarcity) */}
-        <div className="w-full bg-[#1D1D1F] text-white text-xs sm:text-sm py-2.5 px-4 text-center font-medium tracking-wide" role="status" aria-live="polite">
-          <span className="inline-flex items-center gap-2">
-            <span className="relative flex h-2 w-2" aria-hidden="true">
+        <div className="w-full bg-[#1D1D1F] text-white text-xs sm:text-sm py-2 px-4 text-center font-medium tracking-wide" role="status" aria-live="polite">
+          <span className="inline-flex items-center justify-center gap-2 w-full">
+            <span className="relative flex h-2 w-2 shrink-0" aria-hidden="true">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#34C759] opacity-75"></span>
               <span className="relative inline-flex rounded-full h-2 w-2 bg-[#34C759]"></span>
             </span>
-            Currently accepting new clients in Calgary for {new Date().toLocaleString('default', { month: 'long' })}. <span className="hidden sm:inline">Limited same-day slots available.</span>
+            <span className="truncate">Accepting new clients in Calgary. <span className="hidden sm:inline">Limited same-day slots available.</span></span>
           </span>
         </div>
-        <nav className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between" aria-label="Main navigation">
+        <nav className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-14 sm:h-16 flex items-center justify-between" aria-label="Main navigation">
           <div className="flex items-center gap-2">
-            <a href="/" aria-label="MR.Mech — Home">
-              <img src="/MR.MECH-Logo-Orange-Blue.svg" alt="MR.Mech" className="h-10 w-auto" />
+            <a href="/" aria-label="MR.Mech — Home" className="active:scale-95 transition-transform">
+              <img src="/MR.MECH-Logo-Orange-Blue.svg" alt="MR.Mech" className="h-8 sm:h-10 w-auto" />
             </a>
           </div>
-          <div className="hidden sm:block">
+          <div className="flex items-center gap-3">
             <a
               href="tel:+14035550199"
               aria-label="Call MR.Mech at (403) 555-0199"
-              className="inline-flex items-center justify-center px-5 py-2.5 text-sm font-semibold text-white bg-[#FF9500] rounded-full hover:bg-[#E58600] transition-colors shadow-sm"
+              className="inline-flex items-center justify-center px-4 py-2 sm:px-5 sm:py-2.5 text-sm font-semibold text-white bg-[#FF9500] rounded-full hover:bg-[#E58600] active:scale-95 transition-all shadow-sm"
             >
-              Call Now: (403) 555-0199
+              <span className="sm:hidden">Call Now</span>
+              <span className="hidden sm:inline">Call Now: (403) 555-0199</span>
             </a>
           </div>
         </nav>
@@ -85,49 +86,49 @@ export default function Home() {
 
       <main id="main-content" className="flex flex-col items-center w-full overflow-hidden">
         {/* Hero Section */}
-        <section aria-labelledby="hero-heading" className="relative w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-0 sm:pt-1 lg:pt-2 pb-2 sm:pb-4 lg:pb-6 text-center sm:text-left flex flex-col sm:flex-row items-center gap-6 sm:gap-10 min-h-[calc(100dvh-7rem)]">
+        <section aria-labelledby="hero-heading" className="relative w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-2 sm:pt-4 lg:pt-6 pb-2 sm:pb-4 lg:pb-6 text-center sm:text-left flex flex-col sm:flex-row items-center gap-8 sm:gap-10 min-h-[calc(100dvh-7rem)]">
           {/* Subtle Technical Background Pattern */}
           <div className="absolute inset-0 -z-20 opacity-[0.03]" aria-hidden="true" style={{ backgroundImage: 'radial-gradient(#1D1D1F 1.5px, transparent 1.5px)', backgroundSize: '24px 24px' }}></div>
           
-          <div className="flex-1 space-y-4 sm:space-y-5 relative z-10 flex flex-col items-center sm:items-start">
+          <div className="flex-1 space-y-5 sm:space-y-6 relative z-10 flex flex-col items-center sm:items-start w-full">
             
             {/* Top Trust Signals (Moved up for immediate mobile impact) */}
-            <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-3 animate-[fadeInUp_0.8s_ease-out_0.1s_both]">
-              <div className="relative inline-flex items-center gap-1.5 px-3 py-1 sm:px-4 sm:py-1.5 rounded-full bg-white shadow-sm border border-gray-100 overflow-hidden group cursor-default hover:-translate-y-0.5 transition-transform duration-300">
+            <div className="flex flex-wrap justify-center sm:justify-start items-center gap-2 sm:gap-3 animate-[fadeInUp_0.8s_ease-out_0.1s_both]">
+              <div className="relative inline-flex items-center gap-1.5 px-3 py-1.5 sm:px-4 sm:py-1.5 rounded-full bg-white shadow-sm border border-gray-100 overflow-hidden group cursor-default hover:-translate-y-0.5 transition-transform duration-300">
                 <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/80 to-transparent -translate-x-full animate-shimmer z-10"></div>
-                <svg className="w-4 h-4 text-[#34C759] animate-pulse relative z-20" fill="currentColor" viewBox="0 0 20 20">
+                <svg className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#34C759] animate-pulse relative z-20" fill="currentColor" viewBox="0 0 20 20">
                   <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                 </svg>
-                <span className="text-xs sm:text-sm font-bold text-gray-800 relative z-20">Red Seal Certified</span>
+                <span className="text-[11px] sm:text-sm font-bold text-gray-800 relative z-20">Red Seal Certified</span>
               </div>
               
-              <div className="flex items-center gap-1.5 bg-orange-50 px-3 py-1 sm:px-4 sm:py-1.5 rounded-full border border-orange-100 hover:-translate-y-0.5 transition-transform duration-300 cursor-default">
+              <div className="flex items-center gap-1.5 bg-orange-50 px-3 py-1.5 sm:px-4 sm:py-1.5 rounded-full border border-orange-100 hover:-translate-y-0.5 transition-transform duration-300 cursor-default">
                 <div className="flex text-[#FF9500]">
                   {[...Array(5)].map((_, i) => (
-                    <svg key={i} className="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20">
+                    <svg key={i} className="w-3 h-3 sm:w-3.5 sm:h-3.5" fill="currentColor" viewBox="0 0 20 20">
                       <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
                     </svg>
                   ))}
                 </div>
-                <span className="text-xs sm:text-sm font-bold text-orange-900">50+ 5-Star Reviews</span>
+                <span className="text-[11px] sm:text-sm font-bold text-orange-900">50+ 5-Star Reviews</span>
               </div>
             </div>
             
-            <h1 id="hero-heading" className="text-[2.5rem] sm:text-5xl lg:text-6xl font-extrabold tracking-tighter text-[#1D1D1F] leading-[1.05] sm:leading-[1.05] text-center sm:text-left animate-[fadeInUp_0.8s_ease-out_0.2s_both]">
+            <h1 id="hero-heading" className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-[#1D1D1F] leading-[1.1] sm:leading-[1.05] text-center sm:text-left animate-[fadeInUp_0.8s_ease-out_0.2s_both] w-full">
               Calgary's Trusted <br className="hidden sm:block" />
               <span className="bg-gradient-to-r from-[#FF9500] to-[#FF5E3A] bg-clip-text text-transparent">Mobile Mechanic.</span>
             </h1>
             
-            <p className="text-base sm:text-lg lg:text-xl text-gray-600 max-w-2xl leading-relaxed font-medium text-center sm:text-left animate-[fadeInUp_0.8s_ease-out_0.3s_both]">
+            <p className="text-[15px] sm:text-lg lg:text-xl text-gray-600 max-w-2xl leading-relaxed font-medium text-center sm:text-left animate-[fadeInUp_0.8s_ease-out_0.3s_both] px-2 sm:px-0">
               We fix your car at your home or workplace. Fully certified, transparent pricing, zero hassle. Let MR.Mech come to you.
             </p>
             
-            <div className="flex flex-col sm:flex-row items-center gap-3 w-full max-w-md sm:max-w-none mx-auto sm:mx-0 animate-[fadeInUp_0.8s_ease-out_0.4s_both]">
+            <div className="flex flex-col sm:flex-row items-center gap-3 w-full max-w-sm sm:max-w-none mx-auto sm:mx-0 animate-[fadeInUp_0.8s_ease-out_0.4s_both]">
               <div className="relative w-full sm:w-auto group">
                 <div className="absolute inset-0 bg-[#FF9500] rounded-full blur-lg opacity-30 group-hover:opacity-50 transition-opacity duration-500"></div>
                 <a
                   href="tel:+14035550199"
-                  className="relative w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 sm:py-4 text-base sm:text-lg font-bold text-white bg-[#FF9500] rounded-full hover:bg-[#E58600] active:scale-95 transition-all shadow-[0_8px_30px_rgb(255,149,0,0.25)] hover:shadow-[0_12px_40px_rgb(255,149,0,0.4)] min-h-[48px] sm:min-h-[52px]"
+                  className="relative w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 sm:py-4 text-[15px] sm:text-lg font-bold text-white bg-[#FF9500] rounded-full hover:bg-[#E58600] active:scale-95 transition-all shadow-[0_8px_30px_rgb(255,149,0,0.25)] hover:shadow-[0_12px_40px_rgb(255,149,0,0.4)] min-h-[52px]"
                 >
                   <svg className="w-5 h-5" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" /></svg>
                   Call MR.Mech Now
@@ -135,24 +136,24 @@ export default function Home() {
               </div>
               <a
                 href="#callback-form"
-                className="w-full sm:w-auto inline-flex items-center justify-center px-6 py-3 sm:py-4 text-base sm:text-lg font-semibold text-gray-700 bg-gray-100 border border-transparent rounded-full hover:bg-gray-200 active:scale-95 transition-all min-h-[48px] sm:min-h-[52px]"
+                className="w-full sm:w-auto inline-flex items-center justify-center px-6 py-3.5 sm:py-4 text-[15px] sm:text-lg font-semibold text-gray-700 bg-gray-100 border border-transparent rounded-full hover:bg-gray-200 active:scale-95 transition-all min-h-[52px]"
               >
                 Request a Callback
               </a>
             </div>
             
             {/* Social Proof Avatars */}
-            <div className="flex items-center justify-center sm:justify-start gap-3 w-full animate-[fadeInUp_0.8s_ease-out_0.5s_both]">
+            <div className="flex items-center justify-center sm:justify-start gap-3 w-full animate-[fadeInUp_0.8s_ease-out_0.5s_both] pt-2 sm:pt-0">
               <div className="flex -space-x-2">
-                <img className="w-7 h-7 sm:w-9 sm:h-9 rounded-full border-2 border-white bg-gray-200 object-cover shadow-sm" src="https://i.pravatar.cc/100?img=1" alt="Satisfied customer photo" width="36" height="36" loading="lazy" />
-                <img className="w-7 h-7 sm:w-9 sm:h-9 rounded-full border-2 border-white bg-gray-200 object-cover shadow-sm" src="https://i.pravatar.cc/100?img=2" alt="Satisfied customer photo" width="36" height="36" loading="lazy" />
-                <img className="w-7 h-7 sm:w-9 sm:h-9 rounded-full border-2 border-white bg-gray-200 object-cover shadow-sm" src="https://i.pravatar.cc/100?img=3" alt="Satisfied customer photo" width="36" height="36" loading="lazy" />
+                <img className="w-8 h-8 sm:w-9 sm:h-9 rounded-full border-2 border-white bg-gray-200 object-cover shadow-sm" src="https://i.pravatar.cc/100?img=1" alt="Satisfied customer photo" width="36" height="36" loading="lazy" />
+                <img className="w-8 h-8 sm:w-9 sm:h-9 rounded-full border-2 border-white bg-gray-200 object-cover shadow-sm" src="https://i.pravatar.cc/100?img=2" alt="Satisfied customer photo" width="36" height="36" loading="lazy" />
+                <img className="w-8 h-8 sm:w-9 sm:h-9 rounded-full border-2 border-white bg-gray-200 object-cover shadow-sm" src="https://i.pravatar.cc/100?img=3" alt="Satisfied customer photo" width="36" height="36" loading="lazy" />
               </div>
-              <span className="text-xs sm:text-sm font-medium text-gray-500">Trusted by 500+ Calgary drivers</span>
+              <span className="text-[13px] sm:text-sm font-medium text-gray-500">Trusted by 500+ Calgary drivers</span>
             </div>
           </div>
           
-          <div className="flex-1 w-full max-w-xs sm:max-w-sm lg:max-w-md relative z-10 animate-[fadeIn_1.2s_ease-out_0.3s_both]" aria-hidden="true">
+          <div className="flex-1 w-full max-w-[280px] sm:max-w-sm lg:max-w-md relative z-10 animate-[fadeIn_1.2s_ease-out_0.3s_both] mt-4 sm:mt-0" aria-hidden="true">
               <img
                 src="/mr-mech-mechanich-man-happy-wrench.png"
                 alt="MR.Mech mobile mechanic holding a wrench next to his service van"
@@ -497,22 +498,22 @@ export default function Home() {
       </footer>
 
       {/* Uber-Style Mobile Sticky Action Bar */}
-      <nav className="fixed bottom-0 left-0 right-0 bg-white/90 backdrop-blur-2xl border-t border-gray-200/50 sm:hidden z-50 shadow-[0_-20px_40px_rgba(0,0,0,0.08)] pb-safe" aria-label="Quick actions">
-        <div className="px-4 py-3 flex items-center gap-3">
+      <nav className="fixed bottom-0 left-0 right-0 bg-white/90 backdrop-blur-2xl border-t border-gray-200/50 sm:hidden z-50 shadow-[0_-10px_30px_rgba(0,0,0,0.05)] pb-safe" aria-label="Quick actions">
+        <div className="px-4 py-3 flex items-center gap-3 max-w-md mx-auto">
           <a
             href="tel:+14035550199"
             aria-label="Call MR.Mech at (403) 555-0199"
-            className="flex-1 flex items-center justify-center gap-2 py-3.5 px-4 text-base font-semibold text-white bg-[#1D1D1F] rounded-2xl shadow-md active:scale-95 transition-transform"
+            className="flex-1 flex items-center justify-center gap-2 py-3.5 px-4 text-[15px] font-bold text-white bg-[#1D1D1F] rounded-2xl shadow-md active:scale-95 transition-transform"
           >
             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
             </svg>
-            Call MR.Mech
+            Call Now
           </a>
           <a
             href="#callback-form"
             aria-label="Get a free quote"
-            className="flex-1 flex items-center justify-center gap-2 py-3.5 px-4 text-base font-semibold text-[#FF9500] bg-[#FF9500]/10 rounded-2xl active:scale-95 transition-transform border border-[#FF9500]/20"
+            className="flex-1 flex items-center justify-center gap-2 py-3.5 px-4 text-[15px] font-bold text-white bg-[#FF9500] rounded-2xl shadow-md active:scale-95 transition-transform"
           >
             Get Quote
           </a>

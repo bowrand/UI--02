@@ -115,12 +115,12 @@ export default function Home() {
             </div>
             
             <h1 id="hero-heading" className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-[#1D1D1F] leading-[1.1] sm:leading-[1.05] text-center sm:text-left animate-[fadeInUp_0.8s_ease-out_0.2s_both] w-full">
-              Calgary's Trusted <br className="hidden sm:block" />
+              Calgary's Friendly <br className="hidden sm:block" />
               <span className="bg-gradient-to-r from-[#FF9500] to-[#FF5E3A] bg-clip-text text-transparent">Mobile Mechanic.</span>
             </h1>
             
             <p className="text-[15px] sm:text-lg lg:text-xl text-gray-600 max-w-2xl leading-relaxed font-medium text-center sm:text-left animate-[fadeInUp_0.8s_ease-out_0.3s_both] px-2 sm:px-0">
-              We fix your car at your home or workplace. Fully certified, transparent pricing, zero hassle. Let MR.Mech come to you.
+              Skip the repair shop. We fix your car right in your driveway or at work. Honest pricing, fully certified, and totally hassle-free.
             </p>
             
             <div className="flex flex-col sm:flex-row items-center gap-3 w-full max-w-sm sm:max-w-none mx-auto sm:mx-0 animate-[fadeInUp_0.8s_ease-out_0.4s_both]">

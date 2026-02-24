@@ -17,12 +17,14 @@ export default function FounderSection() {
             className="w-full lg:w-1/2 relative"
           >
             <div className="aspect-[4/5] sm:aspect-square lg:aspect-[4/5] rounded-[2.5rem] overflow-hidden bg-gray-100 relative">
-              {/* Placeholder for David's Photo */}
-              <div className="absolute inset-0 bg-gradient-to-br from-gray-200 to-gray-300 flex items-center justify-center" role="img" aria-label="Photo of David, founder and lead technician at MR.Mech">
-                <svg className="w-24 h-24 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-                </svg>
-              </div>
+              {/* David's Photo */}
+              <img
+                src="/Mobile-Mechanich-Car-Wrench-work.jpg"
+                alt="David, founder and lead technician at MR.Mech, holding a wrench next to his mobile service van"
+                loading="lazy"
+                decoding="async"
+                className="absolute inset-0 w-full h-full object-cover"
+              />
               
               {/* Overlay Gradient */}
               <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" aria-hidden="true"></div>

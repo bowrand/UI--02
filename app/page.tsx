@@ -68,7 +68,7 @@ export default function Home() {
         <nav className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between" aria-label="Main navigation">
           <div className="flex items-center gap-2">
             <a href="/" aria-label="MR.Mech — Home">
-              <img src="/MR.MECH-Logo.svg" alt="MR.Mech" className="h-10 w-auto" />
+              <img src="/MR.MECH-Logo-Orange-Blue.svg" alt="MR.Mech" className="h-10 w-auto" />
             </a>
           </div>
           <div className="hidden sm:block">
@@ -85,7 +85,7 @@ export default function Home() {
 
       <main id="main-content" className="flex flex-col items-center w-full overflow-hidden">
         {/* Hero Section */}
-        <section aria-labelledby="hero-heading" className="relative w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-4 sm:pt-8 lg:pt-12 pb-6 sm:pb-10 lg:pb-16 text-center sm:text-left flex flex-col sm:flex-row items-center gap-6 sm:gap-10 min-h-[calc(100dvh-7rem)]">
+        <section aria-labelledby="hero-heading" className="relative w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-1 sm:pt-3 lg:pt-6 pb-6 sm:pb-10 lg:pb-16 text-center sm:text-left flex flex-col sm:flex-row items-center gap-6 sm:gap-10 min-h-[calc(100dvh-7rem)]">
           {/* Subtle Technical Background Pattern */}
           <div className="absolute inset-0 -z-20 opacity-[0.03]" aria-hidden="true" style={{ backgroundImage: 'radial-gradient(#1D1D1F 1.5px, transparent 1.5px)', backgroundSize: '24px 24px' }}></div>
           
@@ -483,7 +483,7 @@ export default function Home() {
       <footer className="w-full bg-[#1D1D1F] text-white py-12 pb-32 sm:pb-12" role="contentinfo">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-6">
           <div className="text-center md:text-left">
-            <img src="/MR.MECH-Logo.svg" alt="MR.Mech" className="h-10 w-auto mx-auto md:mx-0 brightness-0 invert" />
+            <img src="/MR.MECH-Logo-Orange-Blue.svg" alt="MR.Mech" className="h-10 w-auto mx-auto md:mx-0" />
             <p className="text-gray-400 mt-2 text-sm">Calgary's Premier Mobile Auto Repair</p>
           </div>
           

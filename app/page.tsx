@@ -3,6 +3,7 @@ import BrandsMarquee from "./components/BrandsMarquee";
 import ComparisonTable from "./components/ComparisonTable";
 import FAQAccordion from "./components/FAQAccordion";
 import FounderSection from "./components/FounderSection";
+import RecentRepairs from "./components/RecentRepairs";
 
 export default function Home() {
   const jsonLd = {
@@ -44,6 +45,8 @@ export default function Home() {
 
   return (
     <>
+      <a href="#main-content" className="skip-link">Skip to main content</a>
+
       <Script
         id="local-business-schema"
         type="application/ld+json"
@@ -51,37 +54,40 @@ export default function Home() {
       />
       
       {/* Sticky Header */}
-      <header className="sticky top-0 z-50 w-full bg-white/80 backdrop-blur-2xl border-b border-gray-200/50 shadow-sm">
+      <header className="sticky top-0 z-50 w-full bg-white/80 backdrop-blur-2xl border-b border-gray-200/50 shadow-sm" role="banner">
         {/* Top Announcement Bar (Urgency/Scarcity) */}
-        <div className="w-full bg-[#1D1D1F] text-white text-xs sm:text-sm py-2.5 px-4 text-center font-medium tracking-wide">
+        <div className="w-full bg-[#1D1D1F] text-white text-xs sm:text-sm py-2.5 px-4 text-center font-medium tracking-wide" role="status" aria-live="polite">
           <span className="inline-flex items-center gap-2">
-            <span className="relative flex h-2 w-2">
+            <span className="relative flex h-2 w-2" aria-hidden="true">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#34C759] opacity-75"></span>
               <span className="relative inline-flex rounded-full h-2 w-2 bg-[#34C759]"></span>
             </span>
             Currently accepting new clients in Calgary for {new Date().toLocaleString('default', { month: 'long' })}. <span className="hidden sm:inline">Limited same-day slots available.</span>
           </span>
         </div>
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+        <nav className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between" aria-label="Main navigation">
           <div className="flex items-center gap-2">
-            <span className="text-2xl font-bold tracking-tight text-[#1D1D1F]">MR.Mech</span>
+            <a href="/" aria-label="MR.Mech — Home">
+              <span className="text-2xl font-bold tracking-tight text-[#1D1D1F]">MR.Mech</span>
+            </a>
           </div>
           <div className="hidden sm:block">
             <a
               href="tel:+14035550199"
+              aria-label="Call MR.Mech at (403) 555-0199"
               className="inline-flex items-center justify-center px-5 py-2.5 text-sm font-semibold text-white bg-[#FF9500] rounded-full hover:bg-[#E58600] transition-colors shadow-sm"
             >
               Call Now: (403) 555-0199
             </a>
           </div>
-        </div>
+        </nav>
       </header>
 
-      <main className="flex flex-col items-center w-full overflow-hidden">
+      <main id="main-content" className="flex flex-col items-center w-full overflow-hidden">
         {/* Hero Section */}
-        <section className="relative w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 sm:pt-24 lg:pt-32 pb-16 sm:pb-24 lg:pb-32 text-center sm:text-left flex flex-col sm:flex-row items-center gap-10 sm:gap-16">
+        <section aria-labelledby="hero-heading" className="relative w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 sm:pt-24 lg:pt-32 pb-16 sm:pb-24 lg:pb-32 text-center sm:text-left flex flex-col sm:flex-row items-center gap-10 sm:gap-16">
           {/* Subtle Technical Background Pattern */}
-          <div className="absolute inset-0 -z-20 opacity-[0.03]" style={{ backgroundImage: 'radial-gradient(#1D1D1F 1.5px, transparent 1.5px)', backgroundSize: '24px 24px' }}></div>
+          <div className="absolute inset-0 -z-20 opacity-[0.03]" aria-hidden="true" style={{ backgroundImage: 'radial-gradient(#1D1D1F 1.5px, transparent 1.5px)', backgroundSize: '24px 24px' }}></div>
           
           <div className="flex-1 space-y-6 sm:space-y-8 relative z-10 flex flex-col items-center sm:items-start">
             
@@ -109,31 +115,31 @@ export default function Home() {
             
             {/* Live Availability Indicator */}
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#34C759]/10 border border-[#34C759]/20 animate-[fadeInUp_0.8s_ease-out_0.15s_both]">
-              <span className="relative flex h-2.5 w-2.5">
+              <span className="relative flex h-2.5 w-2.5" aria-hidden="true">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#34C759] opacity-75"></span>
                 <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-[#34C759]"></span>
               </span>
               <span className="text-sm font-semibold text-[#248A3D]">Available Today in Calgary</span>
             </div>
 
-            <h1 className="text-[2.75rem] sm:text-5xl lg:text-7xl font-extrabold tracking-tighter text-[#1D1D1F] leading-[1.05] sm:leading-[1.05] text-center sm:text-left animate-[fadeInUp_0.8s_ease-out_0.2s_both]">
+            <h1 id="hero-heading" className="text-[2.75rem] sm:text-5xl lg:text-7xl font-extrabold tracking-tighter text-[#1D1D1F] leading-[1.05] sm:leading-[1.05] text-center sm:text-left animate-[fadeInUp_0.8s_ease-out_0.2s_both]">
               Calgary's Trusted <br className="hidden sm:block" />
-              <span className="bg-gradient-to-r from-[#FF9500] via-[#FF5E3A] to-[#FF9500] bg-[length:200%_auto] animate-gradient-x bg-clip-text text-transparent drop-shadow-sm">Mobile Mechanic.</span>
+              <span className="bg-gradient-to-r from-[#FF9500] to-[#FF5E3A] bg-clip-text text-transparent">Mobile Mechanic.</span>
             </h1>
             
             <p className="text-[1.1rem] sm:text-xl lg:text-2xl text-gray-600 max-w-2xl leading-relaxed sm:leading-normal font-medium text-center sm:text-left animate-[fadeInUp_0.8s_ease-out_0.3s_both]">
-              We fix your car at your home or workplace. Fully certified, transparent pricing, zero hassle. Let David come to you.
+              We fix your car at your home or workplace. Fully certified, transparent pricing, zero hassle. Let MR.Mech come to you.
             </p>
             
             <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-4 pt-2 sm:pt-6 w-full max-w-md sm:max-w-none mx-auto sm:mx-0 animate-[fadeInUp_0.8s_ease-out_0.4s_both]">
               <div className="relative w-full sm:w-auto group">
-                <div className="absolute inset-0 bg-[#FF9500] rounded-full blur-md opacity-40 group-hover:opacity-70 group-hover:blur-lg transition-all duration-500 animate-pulse-slow"></div>
+                <div className="absolute inset-0 bg-[#FF9500] rounded-full blur-lg opacity-30 group-hover:opacity-50 transition-opacity duration-500"></div>
                 <a
                   href="tel:+14035550199"
-                  className="relative w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 sm:py-5 text-lg font-bold text-white bg-[#FF9500] rounded-full hover:bg-[#E58600] active:scale-95 transition-all shadow-[0_8px_30px_rgb(255,149,0,0.3)] hover:shadow-[0_8px_30px_rgb(255,149,0,0.5)] min-h-[56px] sm:min-w-[240px]"
+                  className="relative w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 sm:py-5 text-lg font-bold text-white bg-[#FF9500] rounded-full hover:bg-[#E58600] active:scale-95 transition-all shadow-[0_8px_30px_rgb(255,149,0,0.25)] hover:shadow-[0_12px_40px_rgb(255,149,0,0.4)] min-h-[56px] sm:min-w-[240px]"
                 >
-                  <svg className="w-5 h-5 sm:w-6 sm:h-6 animate-pulse" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" /></svg>
-                  Call David Now
+                  <svg className="w-5 h-5 sm:w-6 sm:h-6" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" /></svg>
+                  Call MR.Mech Now
                 </a>
               </div>
               <a
@@ -147,15 +153,15 @@ export default function Home() {
             {/* Social Proof Avatars (Simplified for mobile) */}
             <div className="flex items-center justify-center sm:justify-start gap-3 pt-2 w-full animate-[fadeInUp_0.8s_ease-out_0.5s_both]">
               <div className="flex -space-x-2">
-                <img className="w-8 h-8 sm:w-10 sm:h-10 rounded-full border-2 border-white bg-gray-200 object-cover shadow-sm" src="https://i.pravatar.cc/100?img=1" alt="Customer" />
-                <img className="w-8 h-8 sm:w-10 sm:h-10 rounded-full border-2 border-white bg-gray-200 object-cover shadow-sm" src="https://i.pravatar.cc/100?img=2" alt="Customer" />
-                <img className="w-8 h-8 sm:w-10 sm:h-10 rounded-full border-2 border-white bg-gray-200 object-cover shadow-sm" src="https://i.pravatar.cc/100?img=3" alt="Customer" />
+                <img className="w-8 h-8 sm:w-10 sm:h-10 rounded-full border-2 border-white bg-gray-200 object-cover shadow-sm" src="https://i.pravatar.cc/100?img=1" alt="Satisfied customer photo" width="40" height="40" loading="lazy" />
+                <img className="w-8 h-8 sm:w-10 sm:h-10 rounded-full border-2 border-white bg-gray-200 object-cover shadow-sm" src="https://i.pravatar.cc/100?img=2" alt="Satisfied customer photo" width="40" height="40" loading="lazy" />
+                <img className="w-8 h-8 sm:w-10 sm:h-10 rounded-full border-2 border-white bg-gray-200 object-cover shadow-sm" src="https://i.pravatar.cc/100?img=3" alt="Satisfied customer photo" width="40" height="40" loading="lazy" />
               </div>
-              <span className="text-xs sm:text-sm font-medium text-gray-500">Join hundreds of happy Calgarians</span>
+              <span className="text-xs sm:text-sm font-medium text-gray-500">Trusted by 500+ Calgary drivers</span>
             </div>
           </div>
           
-          <div className="flex-1 w-full max-w-md relative z-10 animate-[fadeIn_1.2s_ease-out_0.3s_both]">
+          <div className="flex-1 w-full max-w-md relative z-10 animate-[fadeIn_1.2s_ease-out_0.3s_both]" aria-hidden="true">
             <div className="aspect-[4/3] bg-gradient-to-br from-white to-gray-50 rounded-[2rem] shadow-2xl overflow-hidden border border-gray-100 relative flex items-center justify-center group">
               {/* Dynamic SVG Illustration */}
               <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,#FF9500_0%,transparent_40%)] opacity-10 group-hover:opacity-20 transition-opacity duration-700"></div>
@@ -183,20 +189,20 @@ export default function Home() {
         </section>
 
         {/* How It Works Section (Frictionless Process) */}
-        <section className="w-full bg-[#1D1D1F] py-16 sm:py-24 lg:py-32 text-white overflow-hidden">
+        <section aria-labelledby="how-it-works-heading" className="w-full bg-[#1D1D1F] py-16 sm:py-24 lg:py-32 text-white overflow-hidden">
           <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center space-y-4 mb-12 sm:mb-20">
-              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight">How It Works</h2>
+              <h2 id="how-it-works-heading" className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight">How It Works</h2>
               <p className="text-lg sm:text-xl text-gray-400">Three simple steps to get you back on the road.</p>
             </div>
             
             <div className="grid md:grid-cols-3 gap-12 sm:gap-16 relative">
               {/* Connecting Line (Desktop only) */}
-              <div className="hidden md:block absolute top-12 left-[16%] right-[16%] h-0.5 bg-gradient-to-r from-transparent via-gray-700 to-transparent"></div>
+              <div className="hidden md:block absolute top-12 left-[16%] right-[16%] h-0.5 bg-gradient-to-r from-transparent via-gray-700 to-transparent" aria-hidden="true"></div>
               
               {[
                 { step: "01", title: "Request a Quote", desc: "Call or fill out the form. Get a transparent, upfront price with no hidden fees." },
-                { step: "02", title: "David Arrives", desc: "I come to your home or office in Calgary fully equipped to handle the repair." },
+                { step: "02", title: "MR.Mech Arrives", desc: "We come to your home or office in Calgary fully equipped to handle the repair." },
                 { step: "03", title: "You Drive", desc: "Pay only when the job is done right. Backed by a 12-month warranty." }
               ].map((item, i) => (
                 <div key={i} className="relative flex flex-col items-center text-center space-y-5 group">
@@ -211,65 +217,22 @@ export default function Home() {
                 </div>
               ))}
             </div>
+
+            {/* Mid-Page CTA — catches users at peak intent after seeing how easy the process is */}
+            <div className="mt-16 sm:mt-20 text-center animate-[fadeInUp_0.8s_ease-out_both]">
+              <a
+                href="#callback-form"
+                className="inline-flex items-center gap-2 px-8 py-4 text-lg font-semibold text-white bg-[#FF9500] rounded-full hover:bg-[#E58600] active:scale-95 transition-all shadow-[0_4px_20px_rgb(255,149,0,0.2)] hover:shadow-[0_8px_30px_rgb(255,149,0,0.35)]"
+              >
+                Get Your Free Quote
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
+              </a>
+              <p className="mt-4 text-sm text-gray-400">No obligation. Average response under 15 minutes.</p>
+            </div>
           </div>
         </section>
 
-        {/* Recent Work Gallery (Proof of Competence) */}
-        <section className="w-full bg-white py-16 sm:py-24 lg:py-32 border-b border-gray-100">
-          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex flex-col sm:flex-row justify-between items-start sm:items-end mb-12 sm:mb-16 gap-6">
-              <div className="space-y-4">
-                <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-[#1D1D1F]">Recent Mobile Repairs</h2>
-                <p className="text-lg sm:text-xl text-gray-600">Real jobs done right in Calgary driveways.</p>
-              </div>
-              <a href="#callback-form" className="text-[#FF9500] font-semibold hover:underline flex items-center gap-1 text-lg">
-                Book Your Repair
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
-              </a>
-            </div>
-            
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-              {[
-                { title: "Brake Pad Replacement", location: "NW Calgary", icon: "M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z", before: "Squeaking brakes", after: "Smooth, silent stopping" },
-                { title: "Alternator Swap", location: "Downtown Office Parkade", icon: "M13 10V3L4 14h7v7l9-11h-7z", before: "Car wouldn't start", after: "Running perfectly in 2 hrs" },
-                { title: "Pre-Purchase Inspection", location: "SE Calgary", icon: "M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4", before: "Uncertain buyer", after: "Full 150-point report provided" }
-              ].map((job, i) => (
-                <div key={i} className="group relative rounded-[2rem] overflow-hidden bg-gray-100 aspect-[4/3] border border-gray-200 shadow-sm flex flex-col">
-                  {/* Placeholder Image Background */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-gray-200 to-gray-300 flex items-center justify-center group-hover:scale-105 transition-transform duration-700 ease-out">
-                    <svg className="w-16 h-16 text-gray-400 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z" />
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 13a3 3 0 11-6 0 3 3 0 016 0z" />
-                    </svg>
-                  </div>
-                  {/* Overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent opacity-90"></div>
-                  <div className="absolute bottom-0 left-0 p-6 sm:p-8 w-full">
-                    <div className="flex items-center gap-2 text-[#FF9500] mb-3">
-                      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={job.icon} />
-                      </svg>
-                      <span className="text-sm font-semibold tracking-wide uppercase">{job.location}</span>
-                    </div>
-                    <h3 className="text-xl sm:text-2xl font-bold tracking-tight text-white mb-4">{job.title}</h3>
-                    
-                    {/* Before/After Micro-Case Study */}
-                    <div className="flex flex-col gap-2 text-sm sm:text-base">
-                      <div className="flex items-center gap-2 text-gray-300">
-                        <span className="w-1.5 h-1.5 rounded-full bg-red-500"></span>
-                        <span className="font-medium text-gray-400">Issue:</span> {job.before}
-                      </div>
-                      <div className="flex items-center gap-2 text-white">
-                        <span className="w-1.5 h-1.5 rounded-full bg-[#34C759]"></span>
-                        <span className="font-medium text-gray-300">Result:</span> {job.after}
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
+        <RecentRepairs />
 
         <BrandsMarquee />
 
@@ -278,14 +241,14 @@ export default function Home() {
         <FounderSection />
 
         {/* Guarantees & Certifications (Authority Bias) */}
-        <section className="relative w-full bg-[#F5F5F7] py-16 sm:py-24 lg:py-32 border-b border-gray-200 overflow-hidden">
+        <section aria-labelledby="guarantees-heading" className="relative w-full bg-[#F5F5F7] py-16 sm:py-24 lg:py-32 border-b border-gray-200 overflow-hidden">
           <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 z-10">
             <div className="text-center space-y-4 mb-12 sm:mb-20 flex flex-col items-center">
               <div className="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-full bg-white shadow-sm border border-gray-100 text-[#34C759] font-bold text-sm mb-2 animate-[fadeInUp_0.8s_ease-out_both]">
                 <svg className="w-4 h-4 animate-pulse" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.317C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001zm11.541 3.708a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" /></svg>
                 100% Satisfaction Promise
               </div>
-              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-[#1D1D1F] animate-[fadeInUp_0.8s_ease-out_0.1s_both]">
+              <h2 id="guarantees-heading" className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-[#1D1D1F] animate-[fadeInUp_0.8s_ease-out_0.1s_both]">
                 The MR.Mech Guarantee
               </h2>
               <p className="text-lg sm:text-xl text-gray-600 max-w-2xl animate-[fadeInUp_0.8s_ease-out_0.2s_both]">Your vehicle is in the hands of a certified professional.</p>
@@ -327,13 +290,13 @@ export default function Home() {
         </section>
 
         {/* Testimonials Section */}
-        <section className="w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24 lg:py-32">
+        <section aria-labelledby="testimonials-heading" className="w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24 lg:py-32">
           <div className="text-center space-y-4 mb-12 sm:mb-20">
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#FF9500]/10 text-[#FF9500] font-semibold text-sm mb-2">
               <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" /></svg>
               4.9/5 Average Rating
             </div>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-[#1D1D1F]">Trusted by Calgary Drivers</h2>
+            <h2 id="testimonials-heading" className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-[#1D1D1F]">Trusted by Calgary Drivers</h2>
             <p className="text-lg sm:text-xl text-gray-600">Don't just take my word for it.</p>
           </div>
           
@@ -357,7 +320,9 @@ export default function Home() {
                     </svg>
                   ))}
                 </div>
-                <p className="text-gray-700 italic leading-relaxed text-base sm:text-lg">"{review.text}"</p>
+                <p className="text-gray-700 italic leading-relaxed text-base sm:text-lg">
+                <q>{review.text}</q>
+              </p>
                 <div className="flex items-center justify-between pt-4 border-t border-gray-50">
                   <div className="flex items-center gap-4">
                     <div className="w-12 h-12 rounded-full bg-gray-200 flex items-center justify-center text-gray-500 font-bold text-lg">
@@ -373,23 +338,34 @@ export default function Home() {
               </div>
             ))}
           </div>
+
+          {/* Mid-Page CTA — after testimonials, users are at peak trust */}
+          <div className="mt-12 sm:mt-16 text-center">
+            <a
+              href="#callback-form"
+              className="inline-flex items-center gap-2 px-8 py-4 text-lg font-semibold text-white bg-[#FF9500] rounded-full hover:bg-[#E58600] active:scale-95 transition-all shadow-[0_4px_20px_rgb(255,149,0,0.2)] hover:shadow-[0_8px_30px_rgb(255,149,0,0.35)]"
+            >
+              Book Your Repair Today
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
+            </a>
+          </div>
         </section>
 
         <FAQAccordion />
 
         {/* Final CTA Section (Scarcity & Urgency) */}
-        <section className="w-full max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24 lg:py-32">
+        <section aria-labelledby="final-cta-heading" className="w-full max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24 lg:py-32">
           <div className="bg-[#1C1C1E] border border-white/10 rounded-[2.5rem] sm:rounded-[3rem] p-8 sm:p-16 lg:p-20 text-center shadow-2xl relative overflow-hidden">
             {/* Sophisticated Apple-style Glow */}
             <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent"></div>
             <div className="absolute -top-40 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-[#FF9500]/15 blur-[120px] rounded-full pointer-events-none"></div>
             
             <div className="relative z-10 space-y-8 sm:space-y-10">
-              <h2 className="text-3xl sm:text-5xl lg:text-6xl font-bold tracking-tighter text-white/90 leading-tight sm:leading-[1.1]">
+              <h2 id="final-cta-heading" className="text-3xl sm:text-5xl lg:text-6xl font-bold tracking-tighter text-white/90 leading-tight sm:leading-[1.1]">
                 Ready to Get Back on the Road?
               </h2>
               <p className="text-lg sm:text-xl lg:text-2xl text-white/60 max-w-2xl mx-auto leading-relaxed font-medium">
-                Skip the tow truck and the waiting room. Book your mobile mechanic today. <span className="text-[#FF9500] font-semibold">Secure your appointment today.</span>
+                Skip the tow truck and the waiting room. Get a certified mechanic at your door — <span className="text-[#FF9500] font-semibold">same-day appointments available.</span>
               </p>
               
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 pt-4 sm:pt-6">
@@ -408,7 +384,7 @@ export default function Home() {
         </section>
 
         {/* Conversion Section (The Form) */}
-        <section id="callback-form" className="relative w-full bg-white py-16 sm:py-24 lg:py-32 border-t border-gray-100 overflow-hidden">
+        <section id="callback-form" aria-labelledby="form-heading" className="relative w-full bg-white py-16 sm:py-24 lg:py-32 border-t border-gray-100 overflow-hidden">
           {/* Decorative Background Elements */}
           <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-bl from-[#FF9500]/5 to-transparent pointer-events-none"></div>
           <div className="absolute bottom-0 left-0 w-1/2 h-full bg-gradient-to-tr from-gray-100 to-transparent pointer-events-none"></div>
@@ -421,7 +397,7 @@ export default function Home() {
               {/* Left Side: Trust & Contact Info */}
               <div className="w-full lg:w-5/12 space-y-8 sm:space-y-10 relative z-10">
                 <div className="space-y-4 sm:space-y-5">
-                  <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-[#1D1D1F]">Let's Get You Back on the Road.</h2>
+                  <h2 id="form-heading" className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-[#1D1D1F]">Let's Get You Back on the Road.</h2>
                   <p className="text-lg sm:text-xl text-gray-600 leading-relaxed">Fill out the form, and I'll call you back within 15 minutes to discuss your car's needs.</p>
                 </div>
                 
@@ -460,13 +436,15 @@ export default function Home() {
               
               {/* Right Side: The Form */}
               <div className="w-full lg:w-7/12 relative z-10">
-                <form className="space-y-6 sm:space-y-8 bg-white p-8 sm:p-10 rounded-[2rem] shadow-sm border border-gray-100" action="#">
+                <form className="space-y-6 sm:space-y-8 bg-white p-8 sm:p-10 rounded-[2rem] shadow-sm border border-gray-100" action="#" aria-label="Request a callback">
                   <div className="grid sm:grid-cols-2 gap-6 sm:gap-8">
                     <div className="space-y-2 sm:space-y-3">
                       <label htmlFor="name" className="block text-sm sm:text-base font-medium text-gray-700">Your Name</label>
                       <input 
                         type="text" 
                         id="name" 
+                        name="name"
+                        autoComplete="name"
                         className="w-full px-5 py-4 rounded-2xl border border-gray-300 bg-gray-50 focus:bg-white focus:ring-2 focus:ring-[#FF9500] focus:border-transparent outline-none transition-all text-base sm:text-lg min-h-[56px]"
                         placeholder="John Doe"
                         required
@@ -477,6 +455,8 @@ export default function Home() {
                       <input 
                         type="tel" 
                         id="phone" 
+                        name="phone"
+                        autoComplete="tel"
                         className="w-full px-5 py-4 rounded-2xl border border-gray-300 bg-gray-50 focus:bg-white focus:ring-2 focus:ring-[#FF9500] focus:border-transparent outline-none transition-all text-base sm:text-lg min-h-[56px]"
                         placeholder="(403) 555-0000"
                         required
@@ -487,6 +467,7 @@ export default function Home() {
                     <label htmlFor="issue" className="block text-sm sm:text-base font-medium text-gray-700">What's going on with your car?</label>
                     <textarea 
                       id="issue" 
+                      name="issue"
                       rows={4}
                       className="w-full px-5 py-4 rounded-2xl border border-gray-300 bg-gray-50 focus:bg-white focus:ring-2 focus:ring-[#FF9500] focus:border-transparent outline-none transition-all resize-none text-base sm:text-lg"
                       placeholder="E.g., Brakes are squeaking, won't start, check engine light is on..."
@@ -497,7 +478,7 @@ export default function Home() {
                     type="submit"
                     className="w-full py-4 sm:py-5 text-lg sm:text-xl font-semibold text-white bg-[#FF9500] rounded-2xl hover:bg-[#E58600] transition-colors shadow-md flex items-center justify-center gap-2 min-h-[56px]"
                   >
-                    Request Callback
+                    Get My Free Quote Now
                     <svg className="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
                   </button>
                   
@@ -508,8 +489,8 @@ export default function Home() {
                       Your information is secure
                     </div>
                     <div className="flex items-center gap-2 text-xs sm:text-sm font-medium text-gray-500">
-                      <svg className="w-4 h-4 sm:w-5 sm:h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
-                      Fast response time
+                      <svg className="w-4 h-4 sm:w-5 sm:h-5 text-[#34C759]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                      Average response: under 15 min
                     </div>
                   </div>
                 </form>
@@ -520,7 +501,7 @@ export default function Home() {
       </main>
 
       {/* Footer */}
-      <footer className="w-full bg-[#1D1D1F] text-white py-12 pb-32 sm:pb-12">
+      <footer className="w-full bg-[#1D1D1F] text-white py-12 pb-32 sm:pb-12" role="contentinfo">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-6">
           <div className="text-center md:text-left">
             <span className="text-2xl font-bold tracking-tight">MR.Mech</span>
@@ -529,37 +510,35 @@ export default function Home() {
           
           <div className="text-center md:text-right text-sm text-gray-400 space-y-1">
             <p>Service Area: Calgary, Alberta & Surrounding Areas</p>
-            <p>Keywords: Mobile Mechanic Calgary, Auto Repair at Home, MR.Mech</p>
-            <p className="mt-4">&copy; {new Date().getFullYear()} MR.Mech. All rights reserved.</p>
+            <p className="mt-4">
+              <a href="https://www.bowrand.com" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">&copy; {new Date().getFullYear()} Bowrand. All rights reserved.</a>
+            </p>
           </div>
         </div>
       </footer>
 
       {/* Uber-Style Mobile Sticky Action Bar */}
-      <div className="fixed bottom-0 left-0 right-0 bg-white/90 backdrop-blur-2xl border-t border-gray-200/50 sm:hidden z-50 shadow-[0_-20px_40px_rgba(0,0,0,0.08)] pb-safe">
-        <div className="px-4 py-3 flex items-center justify-between gap-3">
-          <div className="flex flex-col">
-            <span className="text-xs font-medium text-gray-500 uppercase tracking-wider">Status</span>
-            <div className="flex items-center gap-1.5">
-              <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#34C759] opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-[#34C759]"></span>
-              </span>
-              <span className="text-sm font-bold text-[#1D1D1F]">Available Today</span>
-            </div>
-          </div>
-          
+      <nav className="fixed bottom-0 left-0 right-0 bg-white/90 backdrop-blur-2xl border-t border-gray-200/50 sm:hidden z-50 shadow-[0_-20px_40px_rgba(0,0,0,0.08)] pb-safe" aria-label="Quick actions">
+        <div className="px-4 py-3 flex items-center gap-3">
           <a
             href="tel:+14035550199"
+            aria-label="Call MR.Mech at (403) 555-0199"
             className="flex-1 flex items-center justify-center gap-2 py-3.5 px-4 text-base font-semibold text-white bg-[#1D1D1F] rounded-2xl shadow-md active:scale-95 transition-transform"
           >
             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
             </svg>
-            Call David
+            Call MR.Mech
+          </a>
+          <a
+            href="#callback-form"
+            aria-label="Get a free quote"
+            className="flex-1 flex items-center justify-center gap-2 py-3.5 px-4 text-base font-semibold text-[#FF9500] bg-[#FF9500]/10 rounded-2xl active:scale-95 transition-transform border border-[#FF9500]/20"
+          >
+            Get Quote
           </a>
         </div>
-      </div>
+      </nav>
     </>
   );
 }

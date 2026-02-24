@@ -51,6 +51,52 @@ body {
   color: #1D1D1F;
 }
 
+/* ===== WCAG 2.2 Focus Indicators (4px blue outline) ===== */
+*:focus-visible {
+  outline: 4px solid #0066FF;
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Remove default outline for mouse/touch — keep only for keyboard */
+*:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* Skip-to-content link (hidden until focused) */
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 9999;
+  padding: 1rem 2rem;
+  background-color: #0066FF;
+  color: #fff;
+  font-weight: 700;
+  font-size: 1rem;
+  border-radius: 0 0 0.75rem 0.75rem;
+  text-decoration: none;
+  transition: top 0.2s ease;
+}
+.skip-link:focus {
+  top: 0;
+  outline: 4px solid #0066FF;
+  outline-offset: 2px;
+}
+
+/* ===== Reduced Motion (WCAG 2.3.3 + Google CWV) ===== */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
 @supports (padding-bottom: env(safe-area-inset-bottom)) {
   .pb-safe {
     padding-bottom: calc(1rem + env(safe-area-inset-bottom));

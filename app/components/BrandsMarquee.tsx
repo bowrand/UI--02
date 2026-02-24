@@ -46,6 +46,7 @@ export default function BrandsMarquee() {
   return (
     <section
       ref={ref}
+      aria-labelledby="brands-heading"
       className="w-full bg-[#F5F5F7] py-16 sm:py-24 overflow-hidden relative z-10"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-10 sm:mb-16">
@@ -55,7 +56,7 @@ export default function BrandsMarquee() {
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
           className="text-center space-y-3"
         >
-          <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-[#1D1D1F]">
+          <h2 id="brands-heading" className="text-2xl sm:text-3xl font-bold tracking-tight text-[#1D1D1F]">
             Premium service for every make and model.
           </h2>
           <p className="text-base sm:text-lg text-gray-500 font-medium tracking-wide">
@@ -65,7 +66,7 @@ export default function BrandsMarquee() {
       </div>
 
       {/* Marquee Container */}
-      <div className="relative flex flex-col gap-6 sm:gap-8 overflow-hidden group py-4">
+      <div className="relative flex flex-col gap-6 sm:gap-8 overflow-hidden group py-4" aria-hidden="true">
         {/* Gradient Masks for smooth fade in/out at edges */}
         <div className="absolute top-0 left-0 w-24 sm:w-40 h-full bg-gradient-to-r from-[#F5F5F7] to-transparent z-10 pointer-events-none"></div>
         <div className="absolute top-0 right-0 w-24 sm:w-40 h-full bg-gradient-to-l from-[#F5F5F7] to-transparent z-10 pointer-events-none"></div>

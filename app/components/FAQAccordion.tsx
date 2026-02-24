@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Script from "next/script";
 import { motion, AnimatePresence } from "framer-motion";
 
 const faqs = [
@@ -29,11 +30,30 @@ const faqs = [
 export default function FAQAccordion() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": faqs.map((faq) => ({
+      "@type": "Question",
+      "name": faq.question,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": faq.answer,
+      },
+    })),
+  };
+
   return (
-    <section className="w-full py-24 bg-white">
+    <>
+      <Script
+        id="faq-schema"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
+      <section className="w-full py-24 bg-white" aria-labelledby="faq-heading">
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-[#1D1D1F] mb-4">
+          <h2 id="faq-heading" className="text-3xl sm:text-4xl font-bold tracking-tight text-[#1D1D1F] mb-4">
             Frequently Asked Questions
           </h2>
           <p className="text-lg text-gray-500">
@@ -53,6 +73,9 @@ export default function FAQAccordion() {
             >
               <button
                 onClick={() => setOpenIndex(openIndex === index ? null : index)}
+                aria-expanded={openIndex === index}
+                aria-controls={`faq-answer-${index}`}
+                id={`faq-question-${index}`}
                 className="w-full flex items-center justify-between p-6 text-left focus:outline-none"
               >
                 <span className="text-lg font-semibold text-[#1D1D1F] pr-8">
@@ -62,6 +85,7 @@ export default function FAQAccordion() {
                   animate={{ rotate: openIndex === index ? 180 : 0 }}
                   transition={{ type: "spring", stiffness: 300, damping: 20 }}
                   className="shrink-0 text-[#FF9500]"
+                  aria-hidden="true"
                 >
                   <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
@@ -72,6 +96,9 @@ export default function FAQAccordion() {
               <AnimatePresence initial={false}>
                 {openIndex === index && (
                   <motion.div
+                    id={`faq-answer-${index}`}
+                    role="region"
+                    aria-labelledby={`faq-question-${index}`}
                     initial={{ height: 0, opacity: 0 }}
                     animate={{ height: "auto", opacity: 1 }}
                     exit={{ height: 0, opacity: 0 }}
@@ -88,5 +115,6 @@ export default function FAQAccordion() {
         </div>
       </div>
     </section>
+    </>
   );
 }

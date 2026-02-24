@@ -47,7 +47,7 @@ export default function BrandsMarquee() {
     <section
       ref={ref}
       aria-labelledby="brands-heading"
-      className="w-full bg-[#F5F5F7] py-10 sm:py-16 overflow-hidden relative z-10"
+      className="w-full bg-[#F5F5F7] py-8 sm:py-10 overflow-hidden relative z-10"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-6 sm:mb-10">
         <motion.div

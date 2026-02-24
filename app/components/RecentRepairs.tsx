@@ -72,7 +72,7 @@ export default function RecentRepairs() {
   const displayedRepairs = showAll ? repairs : repairs.slice(0, 3);
 
   return (
-    <section className="w-full bg-white py-10 sm:py-16 lg:py-20 border-b border-gray-100 overflow-hidden" aria-labelledby="repairs-heading">
+    <section className="w-full bg-white py-8 sm:py-10 lg:py-14 border-b border-gray-100 overflow-hidden" aria-labelledby="repairs-heading">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col sm:flex-row justify-between items-start sm:items-end mb-8 sm:mb-12 gap-6">
           <div className="space-y-4">

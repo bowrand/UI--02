@@ -50,9 +50,9 @@ export default function FAQAccordion() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
-      <section className="w-full py-24 bg-white" aria-labelledby="faq-heading">
+      <section className="w-full py-10 sm:py-16 lg:py-20 bg-white" aria-labelledby="faq-heading">
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
+        <div className="text-center mb-10">
           <h2 id="faq-heading" className="text-3xl sm:text-4xl font-bold tracking-tight text-[#1D1D1F] mb-4">
             Frequently Asked Questions
           </h2>

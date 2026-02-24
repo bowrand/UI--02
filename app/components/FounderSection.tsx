@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 
 export default function FounderSection() {
   return (
-    <section className="w-full py-24 bg-white overflow-hidden" aria-labelledby="founder-heading">
+    <section className="w-full py-10 sm:py-16 lg:py-20 bg-white overflow-hidden" aria-labelledby="founder-heading">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
           

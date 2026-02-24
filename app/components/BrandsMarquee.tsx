@@ -47,9 +47,9 @@ export default function BrandsMarquee() {
     <section
       ref={ref}
       aria-labelledby="brands-heading"
-      className="w-full bg-[#F5F5F7] py-16 sm:py-24 overflow-hidden relative z-10"
+      className="w-full bg-[#F5F5F7] py-10 sm:py-16 overflow-hidden relative z-10"
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-10 sm:mb-16">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-6 sm:mb-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}

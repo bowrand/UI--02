@@ -63,10 +63,10 @@ export default function FounderSection() {
 
             <div className="space-y-6 text-lg text-gray-600 leading-relaxed">
               <p>
-                "I started MR.Mech because I saw how frustrated people were with traditional repair shops. The long waits, the lack of transparency, and the inconvenience of dropping off your car."
+                "Hey Calgary! I started MR.Mech because I know how stressful and expensive car repairs can be. The long waits at the shop, the confusing bills, and the hassle of dropping off your vehicle just did not make sense to me."
               </p>
               <p>
-                "My goal is simple: to provide dealership-quality repairs right in your driveway, with complete honesty and fair pricing. When you book with MR.Mech, you're not talking to a service advisor—you're talking directly to the mechanic working on your car."
+                "My goal is simple. I want to bring honest, top quality repairs right to your driveway or workplace. When you book with MR.Mech, you are not talking to a pushy salesperson. You are talking directly to the mechanic who will be fixing your car. No surprises, no hidden fees, just good old fashioned friendly service you can trust."
               </p>
             </div>
 

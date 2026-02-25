@@ -4,6 +4,7 @@ import ComparisonTable from "./components/ComparisonTable";
 import FAQAccordion from "./components/FAQAccordion";
 import FounderSection from "./components/FounderSection";
 import RecentRepairs from "./components/RecentRepairs";
+import RecentWorkMarquee from "./components/RecentWorkMarquee";
 
 export default function Home() {
   const jsonLd = {
@@ -330,6 +331,8 @@ export default function Home() {
             </a>
           </div>
         </section>
+
+        <RecentWorkMarquee />
 
         <FAQAccordion />
 

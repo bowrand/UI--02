@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { FiPlus, FiTrash2, FiSave, FiImage, FiFileText } from "react-icons/fi";
+import { FiPlus, FiTrash2, FiSave, FiImage, FiFileText, FiX } from "react-icons/fi";
 import Image from "next/image";
 
 const initialJobs = [
@@ -17,13 +17,32 @@ export default function ContentManager() {
 
   const handleDeleteJob = (id: number) => setJobs(jobs.filter(j => j.id !== id));
 
+  // Add Job modal state
+  const [isAddOpen, setIsAddOpen] = useState(false);
+  const [newJob, setNewJob] = useState({ title: "", car: "", imageUrl: "" });
+
+  const openAdd = () => {
+    setNewJob({ title: "", car: "", imageUrl: "" });
+    setIsAddOpen(true);
+  };
+
+  const closeAdd = () => setIsAddOpen(false);
+
+  const handleAddSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!newJob.title.trim()) return;
+    const next = { id: Date.now(), title: newJob.title.trim(), car: newJob.car.trim() || "", images: [newJob.imageUrl || "https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?q=80&w=800&auto=format&fit=crop"] };
+    setJobs([next, ...jobs]);
+    closeAdd();
+  };
+
   return (
     <div className="space-y-4">
       {/* 1. Recent Jobs & Images */}
       <div className="bg-white rounded-2xl p-4 md:p-5 shadow-sm border border-gray-200">
         <div className="flex items-center justify-between mb-4">
           <h2 className="text-lg font-bold text-gray-900 flex items-center gap-2"><FiImage className="text-blue-600" /> Recent Jobs & Images</h2>
-          <button className="flex items-center gap-1 bg-gray-900 hover:bg-gray-800 text-white px-3 py-1.5 rounded-lg text-sm font-medium transition-colors">
+          <button onClick={openAdd} className="flex items-center gap-1 bg-gray-900 hover:bg-gray-800 text-white px-3 py-1.5 rounded-lg text-sm font-medium transition-colors">
             <FiPlus size={14} /> Add Job
           </button>
         </div>
@@ -44,6 +63,36 @@ export default function ContentManager() {
           ))}
         </div>
       </div>
+
+      {/* Add Job Modal */}
+      {isAddOpen && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50">
+          <div className="bg-white rounded-2xl shadow-xl w-full max-w-xl p-6">
+            <div className="flex items-center justify-between mb-4">
+              <h3 className="text-lg font-bold">Add Job</h3>
+              <button onClick={closeAdd} className="p-2 text-gray-500 hover:text-gray-800 rounded-md"><FiX /></button>
+            </div>
+            <form onSubmit={handleAddSubmit} className="space-y-4">
+              <div>
+                <label className="text-xs font-semibold text-gray-700">Job Title</label>
+                <input value={newJob.title} onChange={e => setNewJob({ ...newJob, title: e.target.value })} className="w-full px-3 py-2 rounded-lg border border-gray-200 text-sm outline-none" required />
+              </div>
+              <div>
+                <label className="text-xs font-semibold text-gray-700">Vehicle (e.g., 2018 Honda Civic)</label>
+                <input value={newJob.car} onChange={e => setNewJob({ ...newJob, car: e.target.value })} className="w-full px-3 py-2 rounded-lg border border-gray-200 text-sm outline-none" />
+              </div>
+              <div>
+                <label className="text-xs font-semibold text-gray-700">Image URL</label>
+                <input value={newJob.imageUrl} onChange={e => setNewJob({ ...newJob, imageUrl: e.target.value })} placeholder="https://..." className="w-full px-3 py-2 rounded-lg border border-gray-200 text-sm outline-none" />
+              </div>
+              <div className="flex items-center justify-end gap-2">
+                <button type="button" onClick={closeAdd} className="px-4 py-2 rounded-lg border border-gray-200 text-sm">Cancel</button>
+                <button type="submit" className="px-4 py-2 rounded-lg bg-gray-900 text-white text-sm">Add Job</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      )}
 
       {/* comments removed per request */}
 

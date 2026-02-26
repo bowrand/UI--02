@@ -373,45 +373,45 @@ export default function Home() {
           <div className="absolute bottom-0 left-0 w-1/2 h-full bg-gradient-to-tr from-gray-100 to-transparent pointer-events-none"></div>
           
           <div className="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 z-10">
-            <div className="bg-white/80 backdrop-blur-2xl rounded-[2.5rem] sm:rounded-[3rem] p-8 sm:p-12 lg:p-16 shadow-2xl border border-gray-100 relative overflow-hidden flex flex-col lg:flex-row gap-12 lg:gap-16">
+            <div className="bg-white/80 backdrop-blur-2xl rounded-[2.5rem] sm:rounded-[3rem] p-6 sm:p-10 lg:p-12 shadow-2xl border border-gray-100 relative overflow-hidden flex flex-col lg:flex-row gap-8 lg:gap-12">
               {/* Form Inner Glow */}
               <div className="absolute -top-24 -right-24 w-48 h-48 bg-[#FF9500]/20 blur-3xl rounded-full pointer-events-none"></div>
               
               {/* Left Side: Trust & Contact Info */}
-              <div className="w-full lg:w-5/12 space-y-8 sm:space-y-10 relative z-10">
-                <div className="space-y-4 sm:space-y-5">
-                  <h2 id="form-heading" className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-[#1D1D1F]">Let's Get You Back on the Road.</h2>
-                  <p className="text-lg sm:text-xl text-gray-600 leading-relaxed">Fill out the form, and I'll call you back within 15 minutes to discuss your car's needs.</p>
+              <div className="w-full lg:w-5/12 space-y-6 relative z-10">
+                <div className="space-y-3">
+                  <h2 id="form-heading" className="text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight text-[#1D1D1F]">We'll Get Back to You</h2>
+                  <p className="text-base sm:text-lg text-gray-600 leading-relaxed">Fill out this short form and David will personally call you back within 15 minutes.</p>
                 </div>
                 
-                <div className="space-y-6 sm:space-y-8">
-                  <div className="flex items-center gap-4 sm:gap-5">
-                    <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-[#FF9500]/10 flex items-center justify-center text-[#FF9500] shrink-0">
-                      <svg className="w-6 h-6 sm:w-7 sm:h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" /></svg>
+                <div className="space-y-4">
+                  <div className="flex items-center gap-3">
+                    <div className="w-10 h-10 rounded-full bg-[#FF9500]/10 flex items-center justify-center text-[#FF9500] shrink-0">
+                      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" /></svg>
                     </div>
                     <div>
-                      <p className="text-sm sm:text-base text-gray-500 font-medium">Direct Line</p>
-                      <a href="tel:+14035550199" className="text-xl sm:text-2xl font-bold tracking-tight text-[#1D1D1F] hover:text-[#FF9500] transition-colors">(403) 555-0199</a>
+                      <p className="text-xs text-gray-500 font-medium">Direct Line</p>
+                      <a href="tel:+14035550199" className="text-lg font-bold tracking-tight text-[#1D1D1F] hover:text-[#FF9500] transition-colors">(403) 555-0199</a>
                     </div>
                   </div>
                   
-                  <div className="flex items-center gap-4 sm:gap-5">
-                    <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-[#FF9500]/10 flex items-center justify-center text-[#FF9500] shrink-0">
-                      <svg className="w-6 h-6 sm:w-7 sm:h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
+                  <div className="flex items-center gap-3">
+                    <div className="w-10 h-10 rounded-full bg-[#FF9500]/10 flex items-center justify-center text-[#FF9500] shrink-0">
+                      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
                     </div>
                     <div>
-                      <p className="text-sm sm:text-base text-gray-500 font-medium">Email</p>
-                      <a href="mailto:david@mrmech.ca" className="text-lg sm:text-xl font-bold tracking-tight text-[#1D1D1F] hover:text-[#FF9500] transition-colors">david@mrmech.ca</a>
+                      <p className="text-xs text-gray-500 font-medium">Email</p>
+                      <a href="mailto:david@mrmech.ca" className="text-base font-bold tracking-tight text-[#1D1D1F] hover:text-[#FF9500] transition-colors">david@mrmech.ca</a>
                     </div>
                   </div>
                   
-                  <div className="flex items-center gap-4 sm:gap-5">
-                    <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-[#FF9500]/10 flex items-center justify-center text-[#FF9500] shrink-0">
-                      <svg className="w-6 h-6 sm:w-7 sm:h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                  <div className="flex items-center gap-3">
+                    <div className="w-10 h-10 rounded-full bg-[#FF9500]/10 flex items-center justify-center text-[#FF9500] shrink-0">
+                      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
                     </div>
                     <div>
-                      <p className="text-sm sm:text-base text-gray-500 font-medium">Hours</p>
-                      <p className="text-lg sm:text-xl font-bold tracking-tight text-[#1D1D1F]">Mon-Sat: 8am - 6pm</p>
+                      <p className="text-xs text-gray-500 font-medium">Hours</p>
+                      <p className="text-base font-bold tracking-tight text-[#1D1D1F]">Mon-Sat: 8am - 6pm</p>
                     </div>
                   </div>
                 </div>
@@ -419,61 +419,63 @@ export default function Home() {
               
               {/* Right Side: The Form */}
               <div className="w-full lg:w-7/12 relative z-10">
-                <form className="space-y-6 sm:space-y-8 bg-white p-8 sm:p-10 rounded-[2rem] shadow-sm border border-gray-100" action="#" aria-label="Request a callback">
-                  <div className="grid sm:grid-cols-2 gap-6 sm:gap-8">
-                    <div className="space-y-2 sm:space-y-3">
-                      <label htmlFor="name" className="block text-sm sm:text-base font-medium text-gray-700">Your Name</label>
-                      <input 
-                        type="text" 
-                        id="name" 
-                        name="name"
-                        autoComplete="name"
-                        className="w-full px-5 py-4 rounded-2xl border border-gray-300 bg-gray-50 focus:bg-white focus:ring-2 focus:ring-[#FF9500] focus:border-transparent outline-none transition-all text-base sm:text-lg min-h-[56px]"
-                        placeholder="John Doe"
-                        required
-                      />
-                    </div>
-                    <div className="space-y-2 sm:space-y-3">
-                      <label htmlFor="phone" className="block text-sm sm:text-base font-medium text-gray-700">Phone Number</label>
-                      <input 
-                        type="tel" 
-                        id="phone" 
-                        name="phone"
-                        autoComplete="tel"
-                        className="w-full px-5 py-4 rounded-2xl border border-gray-300 bg-gray-50 focus:bg-white focus:ring-2 focus:ring-[#FF9500] focus:border-transparent outline-none transition-all text-base sm:text-lg min-h-[56px]"
-                        placeholder="(403) 555-0000"
-                        required
-                      />
-                    </div>
+                <form className="space-y-5 bg-white p-6 sm:p-8 rounded-2xl shadow-sm border border-gray-100" action="#" aria-label="Request a callback">
+                  <div className="space-y-1.5">
+                    <label htmlFor="name" className="block text-sm font-semibold text-gray-700">Your Name</label>
+                    <input 
+                      type="text" 
+                      id="name" 
+                      name="name"
+                      autoComplete="name"
+                      className="w-full px-4 py-3.5 rounded-xl border border-gray-200 bg-gray-50/50 focus:bg-white focus:ring-2 focus:ring-[#FF9500] focus:border-transparent outline-none transition-all text-base"
+                      placeholder="John Doe"
+                      required
+                    />
                   </div>
-                  <div className="space-y-2 sm:space-y-3">
-                    <label htmlFor="issue" className="block text-sm sm:text-base font-medium text-gray-700">What's going on with your car?</label>
+                  <div className="space-y-1.5">
+                    <label htmlFor="phone" className="block text-sm font-semibold text-gray-700">Phone Number</label>
+                    <input 
+                      type="tel" 
+                      id="phone" 
+                      name="phone"
+                      autoComplete="tel"
+                      className="w-full px-4 py-3.5 rounded-xl border border-gray-200 bg-gray-50/50 focus:bg-white focus:ring-2 focus:ring-[#FF9500] focus:border-transparent outline-none transition-all text-base"
+                      placeholder="(403) 555-0000"
+                      required
+                    />
+                  </div>
+                  <div className="space-y-1.5">
+                    <label htmlFor="issue" className="block text-sm font-semibold text-gray-700">What's going on with your vehicle?</label>
                     <textarea 
                       id="issue" 
                       name="issue"
-                      rows={4}
-                      className="w-full px-5 py-4 rounded-2xl border border-gray-300 bg-gray-50 focus:bg-white focus:ring-2 focus:ring-[#FF9500] focus:border-transparent outline-none transition-all resize-none text-base sm:text-lg"
-                      placeholder="E.g., Brakes are squeaking, won't start, check engine light is on..."
+                      rows={5}
+                      className="w-full px-4 py-3.5 rounded-xl border border-gray-200 bg-gray-50/50 focus:bg-white focus:ring-2 focus:ring-[#FF9500] focus:border-transparent outline-none transition-all resize-none text-base"
+                      placeholder="Describe the issue you're experiencing. E.g., Brakes are squeaking, car won't start, check engine light is on, need an oil change..."
                       required
                     ></textarea>
                   </div>
                   <button 
                     type="submit"
-                    className="w-full py-4 sm:py-5 text-lg sm:text-xl font-semibold text-white bg-[#FF9500] rounded-2xl hover:bg-[#E58600] transition-colors shadow-md flex items-center justify-center gap-2 min-h-[56px]"
+                    className="w-full py-4 text-base font-bold text-white bg-[#FF9500] rounded-xl hover:bg-[#E58600] transition-colors shadow-md flex items-center justify-center gap-2"
                   >
-                    Get My Free Quote Now
-                    <svg className="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
+                    Get My Free Quote
+                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
                   </button>
                   
                   {/* Trust Signals Under Form */}
-                  <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-8 pt-6 border-t border-gray-100">
-                    <div className="flex items-center gap-2 text-xs sm:text-sm font-medium text-gray-500">
-                      <svg className="w-4 h-4 sm:w-5 sm:h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" /></svg>
-                      Your information is secure
+                  <div className="flex items-center justify-center gap-6 pt-4 border-t border-gray-100">
+                    <div className="flex items-center gap-1.5 text-xs font-medium text-gray-500">
+                      <svg className="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" /></svg>
+                      Secure
                     </div>
-                    <div className="flex items-center gap-2 text-xs sm:text-sm font-medium text-gray-500">
-                      <svg className="w-4 h-4 sm:w-5 sm:h-5 text-[#34C759]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
-                      Average response: under 15 min
+                    <div className="flex items-center gap-1.5 text-xs font-medium text-gray-500">
+                      <svg className="w-4 h-4 text-[#34C759]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                      Reply in ~15 min
+                    </div>
+                    <div className="flex items-center gap-1.5 text-xs font-medium text-gray-500">
+                      <svg className="w-4 h-4 text-[#FF9500]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>
+                      No obligation
                     </div>
                   </div>
                 </form>

@@ -207,11 +207,11 @@ function RepairCard({ job }: { job: any }) {
 }
 
 export default function RecentRepairs() {
-  const [visibleCount, setVisibleCount] = useState(4);
+  const [visibleCount, setVisibleCount] = useState(5);
 
   useEffect(() => {
-    // Set initial count based on screen size (3 for mobile, 4 for desktop)
-    setVisibleCount(window.innerWidth < 768 ? 3 : 4);
+    // Set initial count based on screen size (3 for mobile, 5 for desktop)
+    setVisibleCount(window.innerWidth < 768 ? 3 : 5);
   }, []);
 
   const displayedRepairs = repairs.slice(0, visibleCount);
@@ -246,7 +246,7 @@ export default function RecentRepairs() {
                 d="M9 5l7 7-7 7"
               />
             </svg>
-          </a>2 xl:grid-cols-4
+          </a>
         </div>
 
         <motion.div

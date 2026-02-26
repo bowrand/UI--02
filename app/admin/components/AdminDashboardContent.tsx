@@ -17,66 +17,43 @@ export default function AdminDashboardContent() {
   const [activeTab, setActiveTab] = useState("content");
 
   return (
-    <div className="space-y-6">
-      {/* Header */}
-      <header className="flex flex-col md:flex-row md:items-end justify-between gap-2 pb-3 border-b border-gray-200/60">
-        <div>
-          <h1 className="text-2xl md:text-3xl font-bold text-gray-900 tracking-tight mb-1">
-            Admin Dashboard
-          </h1>
-          <p className="text-gray-500 text-sm">
-            Manage your website content, view leads, and configure technical settings.
-          </p>
-        </div>
-      </header>
-
-      {/* Tab Navigation */}
-      <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+    <div className="flex h-[calc(100vh-80px)] w-full bg-[#F5F5F7] rounded-2xl shadow-md overflow-hidden">
+      {/* Sidebar Tabs */}
+      <nav className="w-56 min-w-[180px] max-w-[220px] bg-white border-r border-gray-200 flex flex-col py-6 px-3 gap-2">
+        <h1 className="text-lg font-bold text-gray-900 mb-6 pl-2">Admin Dashboard</h1>
         {tabs.map((tab) => {
           const isActive = activeTab === tab.id;
           return (
             <button
               key={tab.id}
               onClick={() => setActiveTab(tab.id)}
-              className={`
-                flex items-center gap-3 p-3 rounded-2xl border transition-all duration-200 text-left
-                ${isActive 
-                  ? "bg-gray-900 border-gray-900 shadow-md text-white" 
-                  : "bg-white border-gray-200 shadow-sm hover:bg-gray-50 text-gray-700"}
-              `}
+              className={`flex items-center gap-2 px-3 py-2 rounded-xl border text-xs font-semibold transition-all duration-200 text-left ${isActive ? "bg-gray-900 border-gray-900 text-white" : "bg-white border-gray-200 text-gray-700 hover:bg-gray-50"}`}
+              style={{ fontSize: '13px', padding: '8px 12px' }}
             >
-              <div className={`p-2 rounded-xl shrink-0 ${isActive ? "bg-white/20 text-white" : "bg-gray-100 text-gray-600"}`}>
-                <tab.icon size={18} />
-              </div>
-              <div>
-                <h3 className={`text-sm font-bold ${isActive ? "text-white" : "text-gray-900"}`}>
-                  {tab.label}
-                </h3>
-                <p className={`text-xs mt-0.5 ${isActive ? "text-gray-300" : "text-gray-500"}`}>
-                  {tab.desc}
-                </p>
-              </div>
+              <div className={`p-1.5 rounded-lg shrink-0 ${isActive ? "bg-white/20 text-white" : "bg-gray-100 text-gray-600"}`}> <tab.icon size={15} /> </div>
+              <span>{tab.label}</span>
             </button>
           );
         })}
-      </div>
+      </nav>
 
-      {/* Tab Content */}
-      <div className="min-h-[50vh]">
+      {/* Main Content Area */}
+      <section className="flex-1 h-full overflow-hidden px-6 py-6">
         <AnimatePresence mode="wait">
           <motion.div
             key={activeTab}
-            initial={{ opacity: 0, y: 5 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -5 }}
+            initial={{ opacity: 0, x: 10 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: -10 }}
             transition={{ duration: 0.2 }}
+            className="h-full overflow-auto w-full"
           >
             {activeTab === "content" && <ContentManager />}
-            {activeTab === "analytics" && <AnalyticsManager />}
+            {activeTab === "analytics" && <AnalyticsManager wide />}
             {activeTab === "advanced" && <AdvancedManager />}
           </motion.div>
         </AnimatePresence>
-      </div>
+      </section>
     </div>
   );
 }

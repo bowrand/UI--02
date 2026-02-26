@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { FiPlus, FiTrash2, FiSave, FiMessageSquare, FiImage, FiFileText } from "react-icons/fi";
+import { FiPlus, FiTrash2, FiSave, FiImage, FiFileText } from "react-icons/fi";
 import Image from "next/image";
 
 const initialJobs = [
@@ -10,19 +10,12 @@ const initialJobs = [
   { id: 2, title: "Engine Diagnostics", car: "2020 Ford F-150", images: ["https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?q=80&w=800&auto=format&fit=crop"] },
 ];
 
-const initialComments = [
-  { id: 1, author: "John D.", text: "David was super fast and fixed my brakes in my driveway!", status: "approved" },
-  { id: 2, author: "Sarah M.", text: "Highly recommend. Very professional.", status: "pending" },
-];
 
 export default function ContentManager() {
   const [jobs, setJobs] = useState(initialJobs);
-  const [comments, setComments] = useState(initialComments);
   const [info, setInfo] = useState({ phone: "(403) 555-0199", email: "david@mrmech.ca", about: "Over 45 years of experience fixing cars in Calgary." });
 
   const handleDeleteJob = (id: number) => setJobs(jobs.filter(j => j.id !== id));
-  const handleApproveComment = (id: number) => setComments(comments.map(c => c.id === id ? { ...c, status: "approved" } : c));
-  const handleDeleteComment = (id: number) => setComments(comments.filter(c => c.id !== id));
 
   return (
     <div className="space-y-4">
@@ -52,28 +45,7 @@ export default function ContentManager() {
         </div>
       </div>
 
-      {/* 2. User Comments */}
-      <div className="bg-white rounded-2xl p-4 md:p-5 shadow-sm border border-gray-200">
-        <h2 className="text-lg font-bold text-gray-900 flex items-center gap-2 mb-4"><FiMessageSquare className="text-green-600" /> User Comments & Reviews</h2>
-        <div className="space-y-2">
-          {comments.map((comment) => (
-            <div key={comment.id} className="flex items-center justify-between gap-3 p-3 rounded-xl border border-gray-100 bg-gray-50/50">
-              <div className="flex-1 min-w-0">
-                <p className="text-sm text-gray-900 font-medium">"{comment.text}"</p>
-                <p className="text-xs text-gray-500 mt-0.5">- {comment.author} • <span className={comment.status === 'approved' ? 'text-green-600' : 'text-orange-500'}>{comment.status}</span></p>
-              </div>
-              <div className="flex items-center gap-1 shrink-0">
-                {comment.status === 'pending' && (
-                  <button onClick={() => handleApproveComment(comment.id)} className="px-3 py-1.5 text-xs font-medium text-green-700 bg-green-100 hover:bg-green-200 rounded-lg transition-colors">Approve</button>
-                )}
-                <button onClick={() => handleDeleteComment(comment.id)} className="p-2 text-gray-400 hover:text-red-600 hover:bg-red-50 rounded-lg transition-colors">
-                  <FiTrash2 size={16} />
-                </button>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
+      {/* comments removed per request */}
 
       {/* 3. General Info & Text Content */}
       <div className="bg-white rounded-2xl p-4 md:p-5 shadow-sm border border-gray-200">

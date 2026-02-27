@@ -70,16 +70,16 @@ const brakeContent: ContentItem[] = [
 
 export default function BrakeRepairPage() {
   return (
-    <main className="w-full bg-[#F5F5F7] min-h-screen">
+    <main className="w-full bg-white min-h-screen">
       {/* Hero Section */}
-      <section className="bg-[#1D1D1F] text-white pt-24 pb-20 px-4 sm:px-6 lg:px-8 text-center">
-        <div className="max-w-4xl mx-auto space-y-6">
-          <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight">Mobile Brake Repair in Calgary</h1>
-          <p className="text-lg sm:text-xl text-gray-300 max-w-2xl mx-auto">
+      <section className="bg-[#1D1D1F] text-white pt-16 sm:pt-20 pb-8 sm:pb-12 px-4 sm:px-6 lg:px-8 text-center">
+        <div className="max-w-3xl mx-auto space-y-4 sm:space-y-5">
+          <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight">Mobile Brake Repair in Calgary</h1>
+          <p className="text-sm sm:text-base text-gray-300 max-w-xl mx-auto">
             Don't risk driving with bad brakes. We come to your driveway or workplace anywhere in Calgary (and up to 30km around) to replace brake pads, rotors, and calipers. Fast, safe, and backed by our 12-month warranty.
           </p>
           <div className="pt-4">
-            <a href="/#callback-form" className="inline-flex items-center gap-2 bg-[#FF9500] text-white px-8 py-4 rounded-full font-bold hover:bg-[#E58600] transition-all shadow-lg hover:shadow-xl active:scale-95">
+            <a href="/#callback-form" className="inline-flex items-center gap-2 bg-[#FF9500] text-white px-6 py-3 rounded-full text-sm font-bold hover:bg-[#E58600] transition-all shadow-md hover:shadow-lg active:scale-95">
               Get a Free Brake Quote
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
             </a>

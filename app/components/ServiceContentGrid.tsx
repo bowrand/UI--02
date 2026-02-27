@@ -7,12 +7,12 @@ export interface ContentItem {
   title: string;
   /** Short teaser shown under the title */
   description: string;
-  /** Optional rich body rendered below description (paragraphs, inline icons, lists) */
+  /** Optional rich body rendered below description */
   body?: ReactNode;
-  /** Optional bullet points shown as a styled list */
+  /** Optional bullet points shown as a styled checklist */
   bullets?: string[];
   icon: ReactNode;
-  /** When true, card spans full width (use for featured items) */
+  /** Kept for backwards compatibility — no longer changes layout */
   featured?: boolean;
 }
 
@@ -22,117 +22,106 @@ interface ServiceContentGridProps {
   items: ContentItem[];
 }
 
-const containerVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.1,
-    },
-  },
-};
-
-const itemVariants = {
-  hidden: { opacity: 0, y: 20 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      type: "spring" as const,
-      stiffness: 100,
-      damping: 15,
-    },
-  },
-};
-
 export default function ServiceContentGrid({ title, subtitle, items }: ServiceContentGridProps) {
   return (
-    <section className="py-20 sm:py-32 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative overflow-hidden">
-      {/* Subtle background glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gradient-to-tr from-blue-50/50 to-orange-50/50 rounded-full blur-3xl -z-10 opacity-50 pointer-events-none"></div>
+    <section className="w-full bg-white py-12 sm:py-16 lg:py-20">
+      <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
 
-      <div className="text-center mb-16 sm:mb-24">
-        <motion.h2 
-          initial={{ opacity: 0, y: 20 }}
+        {/* Section header */}
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.7, ease: [0.21, 0.47, 0.32, 0.98] }}
-          className="text-4xl sm:text-5xl lg:text-6xl font-bold text-[#1D1D1F] mb-6 tracking-tight"
+          viewport={{ once: true, margin: "-80px" }}
+          transition={{ duration: 0.6, ease: [0.21, 0.47, 0.32, 0.98] }}
+          className="mb-10 sm:mb-14"
         >
-          {title}
-        </motion.h2>
-        <motion.p 
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.7, delay: 0.1, ease: [0.21, 0.47, 0.32, 0.98] }}
-          className="text-xl sm:text-2xl text-gray-500 max-w-3xl mx-auto font-medium"
-        >
-          {subtitle}
-        </motion.p>
-      </div>
+          <span className="inline-block text-[11px] sm:text-xs font-bold tracking-widest uppercase text-[#FF9500] mb-3">Service Guide</span>
+          <h2 className="text-2xl sm:text-3xl font-bold text-[#1D1D1F] tracking-tight mb-3 leading-snug">
+            {title}
+          </h2>
+          <p className="text-base sm:text-lg text-gray-500 leading-relaxed font-normal max-w-xl">
+            {subtitle}
+          </p>
+        </motion.div>
 
-      <motion.div 
-        variants={containerVariants}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, margin: "-50px" }}
-        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8"
-      >
-        {items.map((item, index) => (
-          <motion.article 
-            key={index}
-            variants={itemVariants}
-            whileHover={{ y: -8 }}
-            className={`group relative bg-white/70 backdrop-blur-xl p-8 sm:p-10 rounded-[2rem] shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-white/80 hover:shadow-[0_24px_50px_rgb(0,0,0,0.09)] transition-all duration-500 overflow-hidden flex flex-col h-full${
-              item.featured ? ' md:col-span-2 lg:col-span-3' : ''
-            }`}
-          >
-            {/* Hover Gradient Background */}
-            <div className="absolute inset-0 bg-gradient-to-br from-orange-50/0 via-transparent to-blue-50/0 group-hover:from-orange-50/60 group-hover:to-blue-50/40 transition-colors duration-500 -z-10 rounded-[2rem]"></div>
-            
-            {/* Icon */}
-            <motion.div
-              whileHover={{ rotate: 8, scale: 1.15 }}
-              transition={{ type: 'spring', stiffness: 300, damping: 15 }}
-              className="w-14 h-14 bg-gradient-to-br from-orange-50 to-orange-100 text-[#FF9500] rounded-2xl flex items-center justify-center mb-6 shadow-sm border border-orange-100"
+        {/* Article list */}
+        <div className="divide-y divide-gray-100">
+          {items.map((item, index) => (
+            <motion.article
+              key={index}
+              initial={{ opacity: 0, y: 18 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-60px" }}
+              transition={{ duration: 0.5, delay: index * 0.06, ease: [0.21, 0.47, 0.32, 0.98] }}
+              className="py-8 sm:py-10 flex flex-col sm:flex-row gap-5 sm:gap-8"
             >
-              {item.icon}
-            </motion.div>
-
-            <h3 className="text-xl sm:text-2xl font-bold text-[#1D1D1F] mb-3 tracking-tight group-hover:text-[#FF9500] transition-colors duration-300 leading-snug">
-              {item.title}
-            </h3>
-            <p className="text-gray-600 leading-relaxed text-[1.05rem] mb-4">
-              {item.description}
-            </p>
-
-            {/* Optional rich body */}
-            {item.body && (
-              <div className="text-gray-600 leading-relaxed text-[1.05rem] space-y-3 mb-4">
-                {item.body}
+              {/* Icon column */}
+              <div className="flex sm:flex-col items-center sm:items-center gap-3 sm:gap-2 shrink-0">
+                <div className="w-14 h-14 sm:w-16 sm:h-16 bg-gradient-to-br from-orange-50 to-orange-100 text-[#FF9500] rounded-2xl flex items-center justify-center shadow-sm border border-orange-100 shrink-0">
+                  <div className="scale-[1.35] transform-gpu">{item.icon}</div>
+                </div>
+                <span className="text-[11px] font-bold text-gray-300 tracking-widest sm:mt-1 select-none">
+                  {String(index + 1).padStart(2, "0")}
+                </span>
               </div>
-            )}
 
-            {/* Optional bullet list */}
-            {item.bullets && item.bullets.length > 0 && (
-              <ul className="mt-2 space-y-2 flex-grow">
-                {item.bullets.map((b, bi) => (
-                  <li key={bi} className="flex items-start gap-2.5 text-gray-600 text-sm sm:text-[0.97rem]">
-                    <span className="mt-1 shrink-0 w-5 h-5 rounded-full bg-orange-50 border border-orange-100 flex items-center justify-center">
-                      <svg className="w-3 h-3 text-[#FF9500]" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" /></svg>
-                    </span>
-                    {b}
-                  </li>
-                ))}
-              </ul>
-            )}
+              {/* Content column */}
+              <div className="flex-1 min-w-0">
+                <h3 className="text-lg sm:text-xl font-bold text-[#1D1D1F] leading-snug mb-2 tracking-tight">
+                  {item.title}
+                </h3>
+                <p className="text-[0.95rem] sm:text-base text-gray-500 leading-relaxed mb-3">
+                  {item.description}
+                </p>
 
-            {/* Decorative bottom accent line */}
-            <div className="absolute bottom-0 left-0 h-[3px] w-0 bg-gradient-to-r from-[#FF9500] to-[#FF5E3A] group-hover:w-full transition-all duration-700 ease-out rounded-full"></div>
-          </motion.article>
-        ))}
-      </motion.div>
+                {item.body && (
+                  <div className="text-[0.95rem] sm:text-base text-gray-600 leading-relaxed space-y-2 mb-3">
+                    {item.body}
+                  </div>
+                )}
+
+                {item.bullets && item.bullets.length > 0 && (
+                  <ul className="space-y-2 mt-3">
+                    {item.bullets.map((b, bi) => (
+                      <li key={bi} className="flex items-start gap-2.5 text-[0.9rem] sm:text-[0.95rem] text-gray-600">
+                        <span className="mt-0.5 shrink-0 w-4 h-4 rounded-full bg-orange-50 border border-orange-100 flex items-center justify-center">
+                          <svg className="w-2.5 h-2.5 text-[#FF9500]" fill="currentColor" viewBox="0 0 20 20">
+                            <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                          </svg>
+                        </span>
+                        {b}
+                      </li>
+                    ))}
+                  </ul>
+                )}
+              </div>
+            </motion.article>
+          ))}
+        </div>
+
+        {/* Bottom CTA */}
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-40px" }}
+          transition={{ duration: 0.5, ease: [0.21, 0.47, 0.32, 0.98] }}
+          className="mt-10 sm:mt-12 pt-8 sm:pt-10 border-t border-gray-100 flex flex-col sm:flex-row items-center gap-4"
+        >
+          <p className="text-sm text-gray-500 text-center sm:text-left">
+            Have a question? Our Red Seal mechanic is one call away.
+          </p>
+          <a
+            href="tel:+14035550199"
+            className="shrink-0 inline-flex items-center gap-2 px-5 py-2.5 bg-[#FF9500] text-white text-sm font-bold rounded-full hover:bg-[#E58600] active:scale-95 transition-all shadow-sm"
+          >
+            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+            </svg>
+            Call MR.MECH
+          </a>
+        </motion.div>
+
+      </div>
     </section>
   );
 }

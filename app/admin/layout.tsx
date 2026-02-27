@@ -18,9 +18,9 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
         </button>
       </header>
 
-      {/* Main Content */}
-      <main className="flex-1 overflow-y-auto p-4 md:p-6 lg:p-8 scroll-smooth">
-        <div className="max-w-4xl mx-auto">
+      {/* Main Content - full width, responsive */}
+      <main className="flex-1 overflow-y-auto p-2 md:p-4 lg:p-6 scroll-smooth w-full">
+        <div className="w-full max-w-full mx-auto flex flex-col h-full">
           {children}
         </div>
       </main>

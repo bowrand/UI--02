@@ -9,39 +9,60 @@ import RecentWorkMarquee from "./components/RecentWorkMarquee";
 export default function Home() {
   const jsonLd = {
     "@context": "https://schema.org",
-    "@type": "AutoRepair",
-    "name": "MR.Mech",
-    "image": "https://mrmech.ca/logo.png", // Placeholder
-    "@id": "https://mrmech.ca",
-    "url": "https://mrmech.ca",
-    "telephone": "+1-403-555-0199", // Placeholder Calgary number
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "Mobile Service",
-      "addressLocality": "Calgary",
-      "addressRegion": "AB",
-      "postalCode": "T2P",
-      "addressCountry": "CA"
-    },
-    "geo": {
-      "@type": "GeoCoordinates",
-      "latitude": 51.0447,
-      "longitude": -114.0719
-    },
-    "openingHoursSpecification": {
-      "@type": "OpeningHoursSpecification",
-      "dayOfWeek": [
-        "Monday",
-        "Tuesday",
-        "Wednesday",
-        "Thursday",
-        "Friday",
-        "Saturday"
-      ],
-      "opens": "08:00",
-      "closes": "18:00"
-    },
-    "priceRange": "$$"
+    "@graph": [
+      {
+        "@type": ["AutoRepair", "LocalBusiness"],
+        "@id": "https://mrmech.ca/#business",
+        "name": "MR.Mech Mobile Auto Repair",
+        "description": "Calgary's premier mobile mechanic service. Red Seal certified, we come to your home or office for auto repairs, diagnostics, and maintenance. Serving Calgary and a 30km radius.",
+        "image": "https://mrmech.ca/logo.png",
+        "url": "https://mrmech.ca",
+        "telephone": "+1-403-555-0199",
+        "priceRange": "$$",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Mobile Service",
+          "addressLocality": "Calgary",
+          "addressRegion": "AB",
+          "postalCode": "T2P",
+          "addressCountry": "CA"
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": 51.0447,
+          "longitude": -114.0719
+        },
+        "areaServed": [
+          { "@type": "City", "name": "Calgary" },
+          { "@type": "City", "name": "Airdrie" },
+          { "@type": "City", "name": "Okotoks" },
+          { "@type": "City", "name": "Chestermere" },
+          { "@type": "GeoCircle", "geoMidpoint": { "@type": "GeoCoordinates", "latitude": 51.0447, "longitude": -114.0719 }, "geoRadius": "30000" }
+        ],
+        "openingHoursSpecification": {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+          "opens": "08:00",
+          "closes": "18:00"
+        },
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "4.9",
+          "reviewCount": "54"
+        },
+        "hasOfferCatalog": {
+          "@type": "OfferCatalog",
+          "name": "Mobile Auto Repair Services",
+          "itemListElement": [
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Mobile Brake Repair", "url": "https://mrmech.ca/services/mobile-brake-repair" } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Car Diagnostics", "url": "https://mrmech.ca/services/car-diagnostics" } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Battery Replacement", "url": "https://mrmech.ca/services/battery-replacement" } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Alternator Replacement", "url": "https://mrmech.ca/services/alternator-starter-repair" } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Pre-Purchase Inspection", "url": "https://mrmech.ca/services/pre-purchase-inspection" } }
+          ]
+        }
+      }
+    ]
   };
 
   return (
@@ -53,37 +74,6 @@ export default function Home() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      
-      {/* Sticky Header */}
-      <header className="sticky top-0 z-50 w-full bg-white/80 backdrop-blur-2xl border-b border-gray-200/50 shadow-sm" role="banner">
-        {/* Top Announcement Bar (Urgency/Scarcity) */}
-        <div className="w-full bg-[#1D1D1F] text-white text-xs sm:text-sm py-2 px-4 text-center font-medium tracking-wide" role="status" aria-live="polite">
-          <span className="inline-flex items-center justify-center gap-2 w-full">
-            <span className="relative flex h-2 w-2 shrink-0" aria-hidden="true">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#34C759] opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-[#34C759]"></span>
-            </span>
-            <span className="truncate">Accepting new clients in Calgary. <span className="hidden sm:inline">Limited same-day slots available.</span></span>
-          </span>
-        </div>
-        <nav className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-14 sm:h-16 flex items-center justify-between" aria-label="Main navigation">
-          <div className="flex items-center gap-2">
-            <a href="/" aria-label="MR.Mech — Home" className="active:scale-95 transition-transform">
-              <img src="/MR.MECH-Logo-Orange-Blue.svg" alt="MR.Mech" className="h-8 sm:h-10 w-auto" />
-            </a>
-          </div>
-          <div className="flex items-center gap-3">
-            <a
-              href="tel:+14035550199"
-              aria-label="Call MR.Mech at (403) 555-0199"
-              className="inline-flex items-center justify-center px-4 py-2 sm:px-5 sm:py-2.5 text-sm font-semibold text-white bg-[#FF9500] rounded-full hover:bg-[#E58600] active:scale-95 transition-all shadow-sm"
-            >
-              <span className="sm:hidden">Call Now</span>
-              <span className="hidden sm:inline">Call Now: (403) 555-0199</span>
-            </a>
-          </div>
-        </nav>
-      </header>
 
       <main id="main-content" className="flex flex-col items-center w-full overflow-hidden">
         {/* Hero Section */}
@@ -112,6 +102,20 @@ export default function Home() {
                   ))}
                 </div>
                 <span className="text-[11px] sm:text-sm font-bold text-orange-900">50+ 5-Star Reviews</span>
+              </div>
+
+              <div className="flex items-center gap-1.5 bg-blue-50 px-3 py-1.5 sm:px-4 sm:py-1.5 rounded-full border border-blue-100 hover:-translate-y-0.5 transition-transform duration-300 cursor-default">
+                <svg className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                </svg>
+                <span className="text-[11px] sm:text-sm font-bold text-blue-900">Fully Insured</span>
+              </div>
+              
+              <div className="flex items-center gap-1.5 bg-purple-50 px-3 py-1.5 sm:px-4 sm:py-1.5 rounded-full border border-purple-100 hover:-translate-y-0.5 transition-transform duration-300 cursor-default">
+                <svg className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
+                </svg>
+                <span className="text-[11px] sm:text-sm font-bold text-purple-900">12-Month Warranty</span>
               </div>
             </div>
             
@@ -205,10 +209,19 @@ export default function Home() {
                 href="#callback-form"
                 className="inline-flex items-center gap-2 px-8 py-4 text-lg font-semibold text-white bg-[#FF9500] rounded-full hover:bg-[#E58600] active:scale-95 transition-all shadow-[0_4px_20px_rgb(255,149,0,0.2)] hover:shadow-[0_8px_30px_rgb(255,149,0,0.35)]"
               >
-                Get Your Free Quote
+                Request a Callback
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
               </a>
-              <p className="mt-4 text-sm text-gray-400">No obligation. Average response under 15 minutes.</p>
+              <div className="mt-4 flex items-center justify-center gap-4 text-sm text-gray-400">
+                <span className="flex items-center gap-1.5">
+                  <svg className="w-4 h-4 text-[#FF9500]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>
+                  No obligation
+                </span>
+                <span className="flex items-center gap-1.5">
+                  <svg className="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" /></svg>
+                  Secure
+                </span>
+              </div>
             </div>
           </div>
         </section>
@@ -329,6 +342,16 @@ export default function Home() {
               Book Your Repair Today
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
             </a>
+            <div className="mt-4 flex items-center justify-center gap-4 text-sm text-gray-500">
+              <span className="flex items-center gap-1.5">
+                <svg className="w-4 h-4 text-[#FF9500]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>
+                No obligation
+              </span>
+              <span className="flex items-center gap-1.5">
+                <svg className="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" /></svg>
+                Secure
+              </span>
+            </div>
           </div>
         </section>
 
@@ -362,6 +385,16 @@ export default function Home() {
                 </a>
               </div>
               <p className="text-sm sm:text-base text-white/40 mt-4 font-medium">No credit card required to book. Pay only when the job is done.</p>
+              <div className="flex items-center justify-center gap-6 mt-6 text-sm text-white/60">
+                <span className="flex items-center gap-1.5">
+                  <svg className="w-4 h-4 text-[#34C759]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" /></svg>
+                  12-Month Warranty
+                </span>
+                <span className="flex items-center gap-1.5">
+                  <svg className="w-4 h-4 text-[#FF9500]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" /></svg>
+                  Secure Booking
+                </span>
+              </div>
             </div>
           </div>
         </section>
@@ -381,7 +414,7 @@ export default function Home() {
               <div className="w-full lg:w-5/12 space-y-6 relative z-10">
                 <div className="space-y-3">
                   <h2 id="form-heading" className="text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight text-[#1D1D1F]">We'll Get Back to You</h2>
-                  <p className="text-base sm:text-lg text-gray-600 leading-relaxed">Fill out this short form and David will personally call you back within 15 minutes.</p>
+                  <p className="text-base sm:text-lg text-gray-600 leading-relaxed">Fill out this short form and David will personally call you back.</p>
                 </div>
                 
                 <div className="space-y-4">
@@ -411,10 +444,32 @@ export default function Home() {
                     </div>
                     <div>
                       <p className="text-xs text-gray-500 font-medium">Hours</p>
-                      <p className="text-base font-bold tracking-tight text-[#1D1D1F]">Mon-Sat: 8am - 6pm</p>
+                        <p className="text-base font-bold tracking-tight text-[#1D1D1F]">Flexible hours, including evenings & weekends</p>
                     </div>
                   </div>
                 </div>
+
+                  {/* Service Acceptance & Reply Time */}
+                  <div className="pt-6 mt-6 border-t border-gray-100">
+                    <div className="flex items-center gap-4 p-4 bg-gray-50/80 rounded-2xl border border-gray-100">
+                      <div className="relative flex items-center justify-center w-12 h-12 rounded-full bg-white shadow-sm shrink-0">
+                        <svg className="w-6 h-6 text-[#FF9500] relative z-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8.5L18 7h-4v11a2 2 0 01-2 2z" />
+                          <circle cx="8" cy="18" r="2" strokeWidth={1.5} />
+                          <circle cx="18" cy="18" r="2" strokeWidth={1.5} />
+                        </svg>
+                      </div>
+                      <div>
+                        <div className="flex items-center gap-2 mb-0.5">
+                          <span className="relative flex h-2.5 w-2.5">
+                            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#FF9500] opacity-75"></span>
+                            <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-[#FF9500]"></span>
+                          </span>
+                          <p className="text-sm font-bold text-gray-900">Accepting Service Requests</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
               </div>
               
               {/* Right Side: The Form */}
@@ -459,23 +514,27 @@ export default function Home() {
                     type="submit"
                     className="w-full py-4 text-base font-bold text-white bg-[#FF9500] rounded-xl hover:bg-[#E58600] transition-colors shadow-md flex items-center justify-center gap-2"
                   >
-                    Get My Free Quote
+                    Request a Callback
                     <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
                   </button>
                   
                   {/* Trust Signals Under Form */}
-                  <div className="flex items-center justify-center gap-6 pt-4 border-t border-gray-100">
+                  <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-6 pt-4 border-t border-gray-100">
                     <div className="flex items-center gap-1.5 text-xs font-medium text-gray-500">
                       <svg className="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" /></svg>
                       Secure
                     </div>
                     <div className="flex items-center gap-1.5 text-xs font-medium text-gray-500">
-                      <svg className="w-4 h-4 text-[#34C759]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
-                      Reply in ~15 min
-                    </div>
-                    <div className="flex items-center gap-1.5 text-xs font-medium text-gray-500">
                       <svg className="w-4 h-4 text-[#FF9500]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>
                       No obligation
+                    </div>
+                    <div className="flex items-center gap-1.5 text-xs font-medium text-gray-500">
+                      <svg className="w-4 h-4 text-[#34C759]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" /></svg>
+                      100% Privacy
+                    </div>
+                    <div className="flex items-center gap-1.5 text-xs font-medium text-gray-500">
+                      <svg className="w-4 h-4 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
+                      Avg. response: 15 mins
                     </div>
                   </div>
                 </form>
@@ -484,46 +543,6 @@ export default function Home() {
           </div>
         </section>
       </main>
-
-      {/* Footer */}
-      <footer className="w-full bg-[#1D1D1F] text-white py-12 pb-32 sm:pb-12" role="contentinfo">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-6">
-          <div className="text-center md:text-left">
-            <img src="/MR.MECH-Logo-Orange-Blue.svg" alt="MR.Mech" className="h-10 w-auto mx-auto md:mx-0" />
-            <p className="text-gray-400 mt-2 text-sm">Calgary's Premier Mobile Auto Repair</p>
-          </div>
-          
-          <div className="text-center md:text-right text-sm text-gray-400 space-y-1">
-            <p>Service Area: Calgary, Alberta & Surrounding Areas</p>
-            <p className="mt-4">
-              <a href="https://www.bowrand.com" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">&copy; {new Date().getFullYear()} Bowrand. All rights reserved.</a>
-            </p>
-          </div>
-        </div>
-      </footer>
-
-      {/* Uber-Style Mobile Sticky Action Bar */}
-      <nav className="fixed bottom-0 left-0 right-0 bg-white/90 backdrop-blur-2xl border-t border-gray-200/50 sm:hidden z-50 shadow-[0_-10px_30px_rgba(0,0,0,0.05)] pb-safe" aria-label="Quick actions">
-        <div className="px-4 py-3 flex items-center gap-3 max-w-md mx-auto">
-          <a
-            href="tel:+14035550199"
-            aria-label="Call MR.Mech at (403) 555-0199"
-            className="flex-1 flex items-center justify-center gap-2 py-3.5 px-4 text-[15px] font-bold text-white bg-[#1D1D1F] rounded-2xl shadow-md active:scale-95 transition-transform"
-          >
-            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-            </svg>
-            Call Now
-          </a>
-          <a
-            href="#callback-form"
-            aria-label="Get a free quote"
-            className="flex-1 flex items-center justify-center gap-2 py-3.5 px-4 text-[15px] font-bold text-white bg-[#FF9500] rounded-2xl shadow-md active:scale-95 transition-transform"
-          >
-            Get Quote
-          </a>
-        </div>
-      </nav>
     </>
   );
 }

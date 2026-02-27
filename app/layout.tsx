@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -10,15 +12,15 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: "MR.Mech | Calgary's #1 Mobile Mechanic — We Come to You",
-  description: "Red Seal certified mobile mechanic serving Calgary & area. Brake repairs, diagnostics, alternators & more at your home or office. 12-month warranty. Same-day service. Call David now!",
-  keywords: ["Mobile Mechanic Calgary", "Auto Repair at Home Calgary", "MR.Mech", "Calgary Mobile Mechanic", "Mobile Auto Repair Calgary", "Mobile Car Repair Near Me", "Emergency Mechanic Calgary"],
+  description: "Red Seal certified mobile mechanic serving Calgary, Airdrie, Okotoks, and Chestermere. Brake repairs, diagnostics, alternators & more at your home or office. 12-month warranty. Same-day service. Call David now!",
+  keywords: ["Mobile Mechanic Calgary", "Auto Repair at Home Calgary", "MR.Mech", "Calgary Mobile Mechanic", "Mobile Auto Repair Calgary", "Mobile Car Repair Near Me", "Emergency Mechanic Calgary", "Mobile Mechanic Airdrie", "Mobile Mechanic Okotoks", "Mobile Mechanic Chestermere"],
   metadataBase: new URL("https://mrmech.ca"),
   alternates: {
-    canonical: "/",
+    canonical: "https://mrmech.ca",
   },
   openGraph: {
     title: "MR.Mech | Calgary's #1 Mobile Mechanic",
-    description: "Red Seal certified mobile mechanic. We come to your home or office in Calgary. Transparent pricing, 12-month warranty. Book same-day service now!",
+    description: "Red Seal certified mobile mechanic. We come to your home or office in Calgary and surrounding areas. Transparent pricing, 12-month warranty. Book same-day service now!",
     url: "https://mrmech.ca",
     siteName: "MR.Mech",
     locale: "en_CA",
@@ -66,9 +68,13 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <body
-        className={`${inter.variable} font-sans antialiased bg-[#F5F5F7] text-[#1D1D1F]`}
+        className={`${inter.variable} font-sans antialiased bg-[#F5F5F7] text-[#1D1D1F] flex flex-col min-h-screen`}
       >
-        {children}
+        <Header />
+        <div className="flex-grow">
+          {children}
+        </div>
+        <Footer />
       </body>
     </html>
   );

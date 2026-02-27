@@ -77,7 +77,7 @@ export default function Home() {
 
       <main id="main-content" className="flex flex-col items-center w-full overflow-hidden">
         {/* Hero Section */}
-        <section aria-labelledby="hero-heading" className="relative w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-2 sm:pt-4 lg:pt-6 pb-2 sm:pb-4 lg:pb-6 text-center sm:text-left flex flex-col sm:flex-row items-center gap-8 sm:gap-10 min-h-[calc(100dvh-7rem)]">
+        <section aria-labelledby="hero-heading" className="relative w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-4 sm:pt-6 lg:pt-8 pb-8 sm:pb-10 lg:pb-12 text-center sm:text-left flex flex-col sm:flex-row items-center gap-8 sm:gap-10">
           {/* Subtle Technical Background Pattern */}
           <div className="absolute inset-0 -z-20 opacity-[0.03]" aria-hidden="true" style={{ backgroundImage: 'radial-gradient(#1D1D1F 1.5px, transparent 1.5px)', backgroundSize: '24px 24px' }}></div>
           
@@ -93,15 +93,11 @@ export default function Home() {
                 <span className="text-[11px] sm:text-sm font-bold text-gray-800 relative z-20">Red Seal Certified</span>
               </div>
               
-              <div className="flex items-center gap-1.5 bg-orange-50 px-3 py-1.5 sm:px-4 sm:py-1.5 rounded-full border border-orange-100 hover:-translate-y-0.5 transition-transform duration-300 cursor-default">
-                <div className="flex text-[#FF9500]">
-                  {[...Array(5)].map((_, i) => (
-                    <svg key={i} className="w-3 h-3 sm:w-3.5 sm:h-3.5" fill="currentColor" viewBox="0 0 20 20">
-                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                    </svg>
-                  ))}
-                </div>
-                <span className="text-[11px] sm:text-sm font-bold text-orange-900">50+ 5-Star Reviews</span>
+              <div className="flex items-center gap-1.5 bg-purple-50 px-3 py-1.5 sm:px-4 sm:py-1.5 rounded-full border border-purple-100 hover:-translate-y-0.5 transition-transform duration-300 cursor-default">
+                <svg className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
+                </svg>
+                <span className="text-[11px] sm:text-sm font-bold text-purple-900">12-Month Warranty</span>
               </div>
 
               <div className="flex items-center gap-1.5 bg-blue-50 px-3 py-1.5 sm:px-4 sm:py-1.5 rounded-full border border-blue-100 hover:-translate-y-0.5 transition-transform duration-300 cursor-default">
@@ -109,13 +105,6 @@ export default function Home() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
                 </svg>
                 <span className="text-[11px] sm:text-sm font-bold text-blue-900">Fully Insured</span>
-              </div>
-              
-              <div className="flex items-center gap-1.5 bg-purple-50 px-3 py-1.5 sm:px-4 sm:py-1.5 rounded-full border border-purple-100 hover:-translate-y-0.5 transition-transform duration-300 cursor-default">
-                <svg className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
-                </svg>
-                <span className="text-[11px] sm:text-sm font-bold text-purple-900">12-Month Warranty</span>
               </div>
             </div>
             
@@ -136,12 +125,12 @@ export default function Home() {
                   className="relative w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 sm:py-4 text-[15px] sm:text-lg font-bold text-white bg-[#FF9500] rounded-full hover:bg-[#E58600] active:scale-95 transition-all shadow-[0_8px_30px_rgb(255,149,0,0.25)] hover:shadow-[0_12px_40px_rgb(255,149,0,0.4)] min-h-[52px]"
                 >
                   <svg className="w-5 h-5" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" /></svg>
-                  Call MR.Mech Now
+                  Call MR.MECH
                 </a>
               </div>
               <a
                 href="#callback-form"
-                className="w-full sm:w-auto inline-flex items-center justify-center px-6 py-3.5 sm:py-4 text-[15px] sm:text-lg font-semibold text-gray-700 bg-gray-100 border border-transparent rounded-full hover:bg-gray-200 active:scale-95 transition-all min-h-[52px]"
+                className="w-full sm:w-auto inline-flex items-center justify-center px-6 py-3.5 sm:py-4 text-[15px] sm:text-lg font-bold text-[#FF9500] bg-orange-50 border border-orange-100 rounded-full hover:bg-orange-100 active:scale-95 transition-all min-h-[52px]"
               >
                 Request a Callback
               </a>

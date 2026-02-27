@@ -20,7 +20,7 @@ export default function RecentWorkMarquee() {
   const [isHovered, setIsHovered] = useState(false);
 
   return (
-    <section className="w-full py-12 sm:py-16 overflow-hidden bg-[#F5F5F7]">
+    <section id="recent-work" className="w-full py-12 sm:py-16 overflow-hidden bg-[#F5F5F7]">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 mb-8 text-center sm:text-left">
         <h3 className="text-2xl sm:text-3xl font-bold tracking-tight text-[#1D1D1F]">
           Recent Work in Action

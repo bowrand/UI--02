@@ -3,10 +3,17 @@
 import { motion } from "framer-motion";
 import { ReactNode } from "react";
 
-interface ContentItem {
+export interface ContentItem {
   title: string;
+  /** Short teaser shown under the title */
   description: string;
+  /** Optional rich body rendered below description (paragraphs, inline icons, lists) */
+  body?: ReactNode;
+  /** Optional bullet points shown as a styled list */
+  bullets?: string[];
   icon: ReactNode;
+  /** When true, card spans full width (use for featured items) */
+  featured?: boolean;
 }
 
 interface ServiceContentGridProps {
@@ -76,21 +83,53 @@ export default function ServiceContentGrid({ title, subtitle, items }: ServiceCo
           <motion.article 
             key={index}
             variants={itemVariants}
-            whileHover={{ y: -8, scale: 1.02 }}
-            className="group relative bg-white/60 backdrop-blur-xl p-8 sm:p-10 rounded-[2rem] shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-white/80 hover:shadow-[0_20px_40px_rgb(0,0,0,0.08)] transition-all duration-500 overflow-hidden"
+            whileHover={{ y: -8 }}
+            className={`group relative bg-white/70 backdrop-blur-xl p-8 sm:p-10 rounded-[2rem] shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-white/80 hover:shadow-[0_24px_50px_rgb(0,0,0,0.09)] transition-all duration-500 overflow-hidden flex flex-col h-full${
+              item.featured ? ' md:col-span-2 lg:col-span-3' : ''
+            }`}
           >
             {/* Hover Gradient Background */}
-            <div className="absolute inset-0 bg-gradient-to-br from-orange-50/0 to-blue-50/0 group-hover:from-orange-50/50 group-hover:to-blue-50/50 transition-colors duration-500 -z-10"></div>
+            <div className="absolute inset-0 bg-gradient-to-br from-orange-50/0 via-transparent to-blue-50/0 group-hover:from-orange-50/60 group-hover:to-blue-50/40 transition-colors duration-500 -z-10 rounded-[2rem]"></div>
             
-            <div className="w-14 h-14 bg-gradient-to-br from-gray-50 to-gray-100 text-[#1D1D1F] rounded-2xl flex items-center justify-center mb-8 shadow-sm border border-gray-200/50 group-hover:scale-110 group-hover:text-[#FF9500] transition-all duration-500">
+            {/* Icon */}
+            <motion.div
+              whileHover={{ rotate: 8, scale: 1.15 }}
+              transition={{ type: 'spring', stiffness: 300, damping: 15 }}
+              className="w-14 h-14 bg-gradient-to-br from-orange-50 to-orange-100 text-[#FF9500] rounded-2xl flex items-center justify-center mb-6 shadow-sm border border-orange-100"
+            >
               {item.icon}
-            </div>
-            <h3 className="text-2xl font-bold text-[#1D1D1F] mb-4 tracking-tight group-hover:text-[#FF9500] transition-colors duration-300">
+            </motion.div>
+
+            <h3 className="text-xl sm:text-2xl font-bold text-[#1D1D1F] mb-3 tracking-tight group-hover:text-[#FF9500] transition-colors duration-300 leading-snug">
               {item.title}
             </h3>
-            <p className="text-gray-600 leading-relaxed text-[1.05rem]">
+            <p className="text-gray-600 leading-relaxed text-[1.05rem] mb-4">
               {item.description}
             </p>
+
+            {/* Optional rich body */}
+            {item.body && (
+              <div className="text-gray-600 leading-relaxed text-[1.05rem] space-y-3 mb-4">
+                {item.body}
+              </div>
+            )}
+
+            {/* Optional bullet list */}
+            {item.bullets && item.bullets.length > 0 && (
+              <ul className="mt-2 space-y-2 flex-grow">
+                {item.bullets.map((b, bi) => (
+                  <li key={bi} className="flex items-start gap-2.5 text-gray-600 text-sm sm:text-[0.97rem]">
+                    <span className="mt-1 shrink-0 w-5 h-5 rounded-full bg-orange-50 border border-orange-100 flex items-center justify-center">
+                      <svg className="w-3 h-3 text-[#FF9500]" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" /></svg>
+                    </span>
+                    {b}
+                  </li>
+                ))}
+              </ul>
+            )}
+
+            {/* Decorative bottom accent line */}
+            <div className="absolute bottom-0 left-0 h-[3px] w-0 bg-gradient-to-r from-[#FF9500] to-[#FF5E3A] group-hover:w-full transition-all duration-700 ease-out rounded-full"></div>
           </motion.article>
         ))}
       </motion.div>

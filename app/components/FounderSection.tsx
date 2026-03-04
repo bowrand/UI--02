@@ -57,7 +57,7 @@ export default function FounderSection() {
                 Meet David.
               </h2>
               <p className="text-xl text-[#FF9500] font-medium">
-                Your Personal Mobile Mechanic
+                Founder &amp; Lead Mechanic
               </p>
             </div>
 

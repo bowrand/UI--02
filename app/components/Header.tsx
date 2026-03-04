@@ -35,16 +35,25 @@ export default function Header() {
         <div className="hidden md:flex items-center gap-6 text-sm font-medium text-gray-700">
           <Link href="/#how-it-works-heading" className="hover:text-[#FF9500] transition-colors">How It Works</Link>
           <Link href="/#guarantees-heading" className="hover:text-[#FF9500] transition-colors">Guarantee</Link>
-          <Link href="/#recent-work" className="hover:text-[#FF9500] transition-colors">Recent Jobs</Link>
+          <Link href="/#our-work" className="hover:text-[#FF9500] transition-colors">Our Work</Link>
         </div>
 
-        <div className="flex items-center gap-3 sm:gap-4">
-          <a href="tel:+14035550199" className="hidden sm:flex items-center gap-2 text-sm font-semibold text-gray-900 hover:text-[#FF9500] transition-colors" aria-label="Call us at (403) 555-0199">
-            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" /></svg>
-            (403) 555-0199
+        <div className="flex items-center gap-2 sm:gap-3">
+          <a
+            href="tel:+14035550199"
+            className="inline-flex items-center gap-2 bg-[#FF9500] hover:bg-[#E08300] text-white px-4 sm:px-5 py-2 rounded-full text-sm font-bold transition-all shadow-sm hover:shadow-md active:scale-95"
+            aria-label="Call MR.MECH"
+          >
+            <svg className="w-4 h-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" /></svg>
+            <span className="hidden sm:inline">Call MR.MECH</span>
+            <span className="sm:hidden">Call</span>
           </a>
-          <a href="#booking-form" className="bg-[#FF9500] hover:bg-[#E08300] text-white px-4 sm:px-5 py-2 sm:py-2 rounded-full text-sm font-semibold transition-all shadow-sm hover:shadow-md active:scale-95" aria-label="Book a mechanic online">
-            Book Online
+          <a
+            href="/#callback-form"
+            className="hidden sm:inline-flex items-center gap-2 bg-[#1D1D1F] hover:bg-[#2d2d2f] text-white px-4 sm:px-5 py-2 rounded-full text-sm font-bold transition-all shadow-sm hover:shadow-md active:scale-95"
+            aria-label="Request a callback"
+          >
+            Request a Callback
           </a>
         </div>
       </nav>

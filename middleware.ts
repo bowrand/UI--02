@@ -60,9 +60,9 @@ function withSecurity(res: NextResponse): NextResponse {
 export async function middleware(req: NextRequest) {
   const { pathname } = req.nextUrl;
 
-  // Block old /admin — hard redirect to login, no content served
+  // /admin and any sub-paths → clean 404, no hint that the real admin exists
   if (pathname.startsWith('/admin')) {
-    return withSecurity(NextResponse.redirect(new URL(LOGIN_PATH, req.url)));
+    return withSecurity(new NextResponse(null, { status: 404 }));
   }
 
   // Protect /Mechadmin88dash routes

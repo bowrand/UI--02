@@ -5,6 +5,7 @@ import FAQAccordion from "./components/FAQAccordion";
 import FounderSection from "./components/FounderSection";
 import RecentRepairs from "./components/RecentRepairs";
 import RecentWorkMarquee from "./components/RecentWorkMarquee";
+import CallbackForm from "./components/CallbackForm";
 
 export default function Home() {
   const jsonLd = {
@@ -464,70 +465,7 @@ export default function Home() {
               
               {/* Right Side: The Form */}
               <div className="w-full lg:w-7/12 relative z-10">
-                <form className="space-y-5 bg-white p-6 sm:p-8 rounded-2xl shadow-sm border border-gray-100" action="#" aria-label="Request a callback">
-                  <div className="space-y-1.5">
-                    <label htmlFor="name" className="block text-sm font-semibold text-gray-700">Your Name</label>
-                    <input 
-                      type="text" 
-                      id="name" 
-                      name="name"
-                      autoComplete="name"
-                      className="w-full px-4 py-3.5 rounded-xl border border-gray-200 bg-gray-50/50 focus:bg-white focus:ring-2 focus:ring-[#FF9500] focus:border-transparent outline-none transition-all text-base"
-                      placeholder="John Doe"
-                      required
-                    />
-                  </div>
-                  <div className="space-y-1.5">
-                    <label htmlFor="phone" className="block text-sm font-semibold text-gray-700">Phone Number</label>
-                    <input 
-                      type="tel" 
-                      id="phone" 
-                      name="phone"
-                      autoComplete="tel"
-                      className="w-full px-4 py-3.5 rounded-xl border border-gray-200 bg-gray-50/50 focus:bg-white focus:ring-2 focus:ring-[#FF9500] focus:border-transparent outline-none transition-all text-base"
-                      placeholder="(403) 555-0000"
-                      required
-                    />
-                  </div>
-                  <div className="space-y-1.5">
-                    <label htmlFor="issue" className="block text-sm font-semibold text-gray-700">What's going on with your vehicle?</label>
-                    <textarea 
-                      id="issue" 
-                      name="issue"
-                      rows={5}
-                      className="w-full px-4 py-3.5 rounded-xl border border-gray-200 bg-gray-50/50 focus:bg-white focus:ring-2 focus:ring-[#FF9500] focus:border-transparent outline-none transition-all resize-none text-base"
-                      placeholder="Describe the issue you're experiencing. E.g., Brakes are squeaking, car won't start, check engine light is on, need an oil change..."
-                      required
-                    ></textarea>
-                  </div>
-                  <button 
-                    type="submit"
-                    className="w-full py-4 text-base font-bold text-white bg-[#FF9500] rounded-xl hover:bg-[#E58600] transition-colors shadow-md flex items-center justify-center gap-2"
-                  >
-                    Request a Callback
-                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
-                  </button>
-                  
-                  {/* Trust Signals Under Form */}
-                  <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-6 pt-4 border-t border-gray-100">
-                    <div className="flex items-center gap-1.5 text-xs font-medium text-gray-500">
-                      <svg className="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" /></svg>
-                      Secure
-                    </div>
-                    <div className="flex items-center gap-1.5 text-xs font-medium text-gray-500">
-                      <svg className="w-4 h-4 text-[#FF9500]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>
-                      No obligation
-                    </div>
-                    <div className="flex items-center gap-1.5 text-xs font-medium text-gray-500">
-                      <svg className="w-4 h-4 text-[#34C759]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" /></svg>
-                      100% Privacy
-                    </div>
-                    <div className="flex items-center gap-1.5 text-xs font-medium text-gray-500">
-                      <svg className="w-4 h-4 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
-                      Avg. response: 15 mins
-                    </div>
-                  </div>
-                </form>
+                <CallbackForm />
               </div>
             </div>
           </div>

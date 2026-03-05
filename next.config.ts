@@ -28,15 +28,9 @@ const nextConfig: NextConfig = {
       },
     ];
   },
+  // No redirects — /admin returns 404 via middleware (no hint of real admin URL)
   async redirects() {
-    return [
-      // Permanently redirect any /admin/* to the login page
-      {
-        source: "/admin/:path*",
-        destination: "/Mechadmin88dash/login",
-        permanent: true,
-      },
-    ];
+    return [];
   },
 };
 

@@ -22,6 +22,10 @@ export default function Header() {
               if (typeof window !== 'undefined' && window.location.pathname === '/') {
                 e.preventDefault();
                 window.scrollTo({ top: 0, behavior: 'smooth' });
+                // Clear any hash fragment from URL (e.g. /#callback-form)
+                if (window.location.hash) {
+                  history.pushState('', document.title, window.location.pathname);
+                }
               }
             }}
             aria-label="MR.Mech — Home" 

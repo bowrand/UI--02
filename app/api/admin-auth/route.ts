@@ -44,8 +44,12 @@ function clearAttempts(ip: string) {
   ATTEMPTS.delete(ip);
 }
 
-function sign(username: string): string {
-  const expiry = (Date.now() + 24 * 60 * 60 * 1000).toString();
+const SESSION_SHORT = 24 * 60 * 60;           // 24 hours (seconds)
+const SESSION_LONG  = 30 * 24 * 60 * 60;      // 30 days  (seconds)
+
+function sign(username: string, keepSignedIn = false): string {
+  const ms     = (keepSignedIn ? SESSION_LONG : SESSION_SHORT) * 1000;
+  const expiry = (Date.now() + ms).toString();
   const raw    = createHmac('sha256', SECRET).update(`${username}|${expiry}`).digest();
   const hmac   = Buffer.from(raw).toString('base64');
   return `${username}|${expiry}|${hmac}`;
@@ -62,11 +66,12 @@ export async function POST(req: NextRequest) {
     );
   }
 
-  let username = '', password = '';
+  let username = '', password = '', keepSignedIn = false;
   try {
     const body = await req.json();
-    username = body.username ?? '';
-    password = body.password ?? '';
+    username     = body.username     ?? '';
+    password     = body.password     ?? '';
+    keepSignedIn = Boolean(body.keepSignedIn);
   } catch {
     return NextResponse.json({ error: 'Invalid request' }, { status: 400 });
   }
@@ -84,13 +89,14 @@ export async function POST(req: NextRequest) {
   }
 
   clearAttempts(ip);
-  const sessionValue = sign(username);
+  const sessionValue = sign(username, keepSignedIn);
+  const cookieMaxAge = keepSignedIn ? SESSION_LONG : SESSION_SHORT;
   const res = NextResponse.json({ ok: true });
   res.cookies.set(COOKIE, sessionValue, {
     httpOnly: true,
     secure:   process.env.NODE_ENV === 'production',
     sameSite: 'strict',
-    maxAge:   60 * 60 * 24,
+    maxAge:   cookieMaxAge,
     path:     '/',
   });
   return res;

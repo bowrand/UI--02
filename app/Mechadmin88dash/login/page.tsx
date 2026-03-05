@@ -9,7 +9,6 @@ export default function LoginPage() {
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
-  const [attempts, setAttempts] = useState(0);
   const passRef = useRef<HTMLInputElement>(null);
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -29,25 +28,26 @@ export default function LoginPage() {
       if (res.ok) {
         router.push("/Mechadmin88dash/dashboard");
         router.refresh();
-      } else {
-        const att = attempts + 1;
-        setAttempts(att);
-        setError("Incorrect username or password.");
-        setPassword("");
-        passRef.current?.focus();
-        if (att >= 3) {
-          setError("Too many attempts. Please wait before trying again.");
-          setLoading(true);
-          setTimeout(() => {
-            setLoading(false);
-            setError("Please try again.");
-          }, 5000);
-        }
+        return; // don't flip loading back
       }
+
+      const json = await res.json().catch(() => ({}));
+
+      if (res.status === 429) {
+        setError("Too many failed attempts. Please wait 10 minutes.");
+        setLoading(true); // keep locked
+        return;
+      }
+
+      const rem = json.attemptsRemaining;
+      const remText = typeof rem === "number" && rem > 0 ? ` (${rem} attempt${rem !== 1 ? "s" : ""} left)` : "";
+      setError(`Incorrect username or password.${remText}`);
+      setPassword("");
+      passRef.current?.focus();
     } catch {
       setError("Network error. Please try again.");
     } finally {
-      if (attempts < 3) setLoading(false);
+      setLoading(false);
     }
   };
 
